@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(MethodSeeder::class);
         $this->call(CitySeeder::class);
         $this->call(QuarterSeeder::class);
+        $this->call(LanguageSeeder::class);
     }
 }
