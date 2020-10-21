@@ -1,0 +1,5 @@
+.Toolbar > .fixed-top {
+    top: -50px;
+    opacity: 0;
+    /* transition: all .25s; */
+}

@@ -1,0 +1,9 @@
+.Logo img {
+    height: 35px;
+}
+
+@media (min-width: 586px) {
+    .Logo img {
+        height: 46px;
+    }
+}
