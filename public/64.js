@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[64],{
 
-/***/ "./resources/js/src/containers/Backend/User/Expenses/Add.js":
-/*!******************************************************************!*\
-  !*** ./resources/js/src/containers/Backend/User/Expenses/Add.js ***!
-  \******************************************************************/
+/***/ "./resources/js/src/containers/Backend/User/Customers/Add.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/src/containers/Backend/User/Customers/Add.js ***!
+  \*******************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -99,12 +99,14 @@ var Add = /*#__PURE__*/function (_Component) {
     _this = _super.call.apply(_super, [this].concat(args));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
-      amount: '',
-      date: '',
-      description: '',
-      proof: null,
-      method_id: '',
-      expendable_type: ''
+      name: '',
+      phone: '',
+      photo: null,
+      city: '',
+      quarter: '',
+      nid_canal: '',
+      nid_eneo: '',
+      nid_camwater: ''
     });
 
     _defineProperty(_assertThisInitialized(_this), "submitHandler", /*#__PURE__*/function () {
@@ -140,7 +142,7 @@ var Add = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "fileUpload", function () {
-      return document.getElementById('proof').click();
+      return document.getElementById('photo').click();
     });
 
     return _this;
@@ -184,50 +186,52 @@ var Add = /*#__PURE__*/function (_Component) {
           _this$props$content$c2 = _this$props$content$c.components.form,
           save = _this$props$content$c2.save,
           selected_file = _this$props$content$c2.selected_file,
-          _this$props$content$c3 = _this$props$content$c.backend.pages.expenses,
+          _this$props$content$c3 = _this$props$content$c.backend.pages.customers,
           title = _this$props$content$c3.title,
           add = _this$props$content$c3.add,
           index = _this$props$content$c3.index,
           form = _this$props$content$c3.form,
-          _this$props$auth$data = _this$props.auth.data,
-          name = _this$props$auth$data.name,
-          features = _this$props$auth$data.role.features,
-          _this$props$backend$e = _this$props.backend.expenses,
-          loading = _this$props$backend$e.loading,
-          error = _this$props$backend$e.error,
-          message = _this$props$backend$e.message,
-          methods = _this$props$backend$e.methods,
-          expendables = _this$props$backend$e.expendables;
+          _this$props$backend$c = _this$props.backend.customers,
+          loading = _this$props$backend$c.loading,
+          error = _this$props$backend$c.error,
+          message = _this$props$backend$c.message,
+          cities = _this$props$backend$c.cities,
+          features = _this$props.auth.data.role.features;
       var _this$state = this.state,
-          amount = _this$state.amount,
-          date = _this$state.date,
-          description = _this$state.description,
-          proof = _this$state.proof,
-          method_id = _this$state.method_id,
-          expendable_type = _this$state.expendable_type;
+          name = _this$state.name,
+          phone = _this$state.phone,
+          photo = _this$state.photo,
+          city = _this$state.city,
+          quarter = _this$state.quarter,
+          nid_canal = _this$state.nid_canal,
+          nid_eneo = _this$state.nid_eneo,
+          nid_camwater = _this$state.nid_camwater;
       var content = null;
       var errors = null;
       var feature = features.find(function (f) {
-        return f.prefix === 'expenses';
+        return f.prefix === 'customers';
       });
       var redirect = !(feature && JSON.parse(feature.permissions).includes('c')) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Redirect"], {
         to: "/user/dashboard"
       });
-      if (!methods) methods = [];
-      var methodsOptions = methods.sort(function (a, b) {
+      if (!cities) cities = [];
+      var quarters = [];
+      if (city !== '') quarters = cities.find(function (c) {
+        return c.id === +city;
+      }).quarters;
+      var citiesOptions = cities.sort(function (a, b) {
         return a.name > b.name;
       }).map(function (item) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
-          key: JSON.stringify(item),
+          key: item.name,
           value: item.id
         }, item.name);
       });
-      if (!expendables) expendables = [];
-      var expendablesOptions = expendables.sort(function (a, b) {
+      var quartersOptions = quarters.sort(function (a, b) {
         return a.name > b.name;
       }).map(function (item) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
-          key: JSON.stringify(item),
+          key: item.name,
           value: item.id
         }, item.name);
       });
@@ -239,10 +243,10 @@ var Add = /*#__PURE__*/function (_Component) {
         }));
         content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__["Row"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Form_Form__WEBPACK_IMPORTED_MODULE_13__["default"], {
           onSubmit: this.submitHandler,
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faMoneyBillWaveAlt"],
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faUserTie"],
           title: add,
           list: index,
-          link: "/user/expenses",
+          link: "/user/customers",
           innerClassName: "row",
           className: "shadow-sm"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__["Col"], {
@@ -250,18 +254,6 @@ var Add = /*#__PURE__*/function (_Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Feedback_Feedback__WEBPACK_IMPORTED_MODULE_16__["default"], {
           message: message
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__["Row"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_14__["default"], {
-          className: "col-lg-6",
-          type: "select",
-          name: "expendable_type",
-          placeholder: form.expendable_type,
-          onChange: this.inputChangeHandler,
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faMoneyBillWave"],
-          validation: {
-            required: true
-          },
-          required: true,
-          value: expendable_type
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", null, form.select_expendable_type), expendablesOptions), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_14__["default"], {
           type: "text",
           className: "col-md-6",
           icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faUser"],
@@ -269,51 +261,64 @@ var Add = /*#__PURE__*/function (_Component) {
           value: name,
           name: "name",
           required: true,
-          placeholder: "Nom de l'utilisateur",
-          readonly: true
+          placeholder: form.name
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_14__["default"], {
-          className: "col-lg-6",
-          type: "select",
-          name: "method_id",
-          placeholder: form.method,
+          type: "tel",
+          className: "col-md-6",
+          addon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+            className: "text-secondary text-small"
+          }, "+237"),
           onChange: this.inputChangeHandler,
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faMoneyBillWave"],
-          validation: {
-            required: true
-          },
+          value: phone,
+          name: "phone",
           required: true,
-          value: method_id
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", null, form.select_method), methodsOptions), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_14__["default"], {
-          type: "date",
+          placeholder: form.phone
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_14__["default"], {
+          type: "select",
+          className: "col-md-6",
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faCity"],
+          onChange: this.inputChangeHandler,
+          value: city,
+          name: "city",
+          required: true,
+          placeholder: form.select_city
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", null, form.select_city), citiesOptions), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_14__["default"], {
+          type: "select",
+          className: "col-md-6",
+          icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faBuilding"],
+          onChange: this.inputChangeHandler,
+          value: quarter,
+          name: "quarter",
+          required: true,
+          placeholder: form.select_quarter
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", null, form.select_quarter), quartersOptions), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_14__["default"], {
+          type: "text",
           className: "col-md-6",
           icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faCalendar"],
           onChange: this.inputChangeHandler,
-          value: date,
-          name: "date",
-          required: true,
-          placeholder: form.date
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_14__["default"], {
-          type: "number",
-          className: "col-md-6",
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faMoneyBillWaveAlt"],
-          onChange: this.inputChangeHandler,
-          value: amount,
-          name: "amount",
-          required: true,
-          placeholder: form.amount
+          value: nid_canal,
+          name: "nid_canal",
+          placeholder: form.nid_canal
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_14__["default"], {
           type: "text",
           className: "col-md-6",
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faEdit"],
+          icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faCalendar"],
           onChange: this.inputChangeHandler,
-          value: description,
-          name: "description",
-          required: true,
-          placeholder: form.description
+          value: nid_eneo,
+          name: "nid_eneo",
+          placeholder: form.nid_eneo
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_14__["default"], {
+          type: "text",
+          className: "col-md-6",
+          icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faCalendar"],
+          onChange: this.inputChangeHandler,
+          value: nid_camwater,
+          name: "nid_camwater",
+          placeholder: form.nid_camwater
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
           type: "file",
-          id: "proof",
-          name: "proof",
+          id: "photo",
+          name: "photo",
           className: "d-none",
           onChange: this.inputChangeHandler,
           accept: ".png,.jpg,.jpeg"
@@ -330,7 +335,7 @@ var Add = /*#__PURE__*/function (_Component) {
             cursor: 'pointer'
           },
           onClick: this.fileUpload
-        }, proof && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        }, photo && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           className: "text-center text-green"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_7__["FontAwesomeIcon"], {
           icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faCheckCircle"],
@@ -344,10 +349,10 @@ var Add = /*#__PURE__*/function (_Component) {
         className: "bg-soft py-4 pl-5 pr-4 position-relative"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Breadcrumb_Breadcrumb__WEBPACK_IMPORTED_MODULE_8__["default"], {
         main: add,
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faMoneyBillWaveAlt"]
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faUserTie"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_UI_Titles_SpecialTitle_SpecialTitle__WEBPACK_IMPORTED_MODULE_9__["default"], {
         user: true,
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faMoneyBillWaveAlt"]
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faUserTie"]
       }, title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_UI_Titles_Subtitle_Subtitle__WEBPACK_IMPORTED_MODULE_10__["default"], {
         user: true
       }, add)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -366,13 +371,13 @@ var mapStateToProps = function mapStateToProps(state) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     get: function get() {
-      return dispatch(_store_actions__WEBPACK_IMPORTED_MODULE_17__["getExpensesInfo"]());
+      return dispatch(_store_actions__WEBPACK_IMPORTED_MODULE_17__["getCustomersInfo"]());
     },
     post: function post(data) {
-      return dispatch(_store_actions__WEBPACK_IMPORTED_MODULE_17__["postExpenses"](data));
+      return dispatch(_store_actions__WEBPACK_IMPORTED_MODULE_17__["postCustomers"](data));
     },
     reset: function reset() {
-      return dispatch(_store_actions__WEBPACK_IMPORTED_MODULE_17__["resetExpenses"]());
+      return dispatch(_store_actions__WEBPACK_IMPORTED_MODULE_17__["resetCustomers"]());
     }
   };
 };

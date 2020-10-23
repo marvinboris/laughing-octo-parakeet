@@ -80,7 +80,7 @@ const SubNavLinks = ({ backend, language }) => {
 
 
     const navItems = Object.keys(backend).map(key => {
-        const id = language.abbr + '-' + key;
+        const id = `${language.abbr}-${key}`;
 
         return <NavItem key={id}>
             <NavLink className={(activeTab === id) && 'active'} onClick={() => toggle(id)}>

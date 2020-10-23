@@ -75,7 +75,8 @@ class AuthController extends Controller
             )->toDateTimeString(),
             'userData' => $user->toArray() + [
                 'notifications' => $user->unreadNotifications()->latest()->limit(5)->get(),
-                'role' => $role
+                'role' => $role,
+                'language' => $user->language->abbr,
             ]
         ]);
     }

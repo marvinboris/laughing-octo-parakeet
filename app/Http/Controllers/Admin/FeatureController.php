@@ -66,9 +66,12 @@ class FeatureController extends Controller
 
     public function show($id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $feature = Feature::find($id);
         if (!$feature) return response()->json([
-            'message' => UtilController::message('Fonctionnalité inexistante.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['features']['not_found'], 'danger'),
         ]);
 
         return response()->json([
@@ -78,6 +81,9 @@ class FeatureController extends Controller
 
     public function store(Request $request)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $request->validate($this->rules);
 
         $input = $request->all();
@@ -85,15 +91,18 @@ class FeatureController extends Controller
         Feature::create($input);
 
         return response()->json([
-            'message' => UtilController::message('Fonctionnalité créée avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['features']['created'], 'success'),
         ]);
     }
 
     public function update(Request $request, $id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $feature = Feature::find($id);
         if (!$feature) return response()->json([
-            'message' => UtilController::message('Fonctionnalité inexistante.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['features']['not_found'], 'danger'),
         ]);
 
         $request->validate($this->rules);
@@ -103,16 +112,19 @@ class FeatureController extends Controller
         $feature->update($input);
 
         return response()->json([
-            'message' => UtilController::message('Fonctionnalité modifiée avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['features']['updated'], 'success'),
             'feature' => $feature,
         ]);
     }
 
     public function destroy($id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $feature = Feature::find($id);
         if (!$feature) return response()->json([
-            'message' => UtilController::message('Fonctionnalité inexistante.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['features']['not_found'], 'danger'),
         ]);
 
         $feature->delete();
@@ -123,7 +135,7 @@ class FeatureController extends Controller
         $total = $data['total'];
 
         return response()->json([
-            'message' => UtilController::message('Fonctionnalité supprimée avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['features']['deleted'], 'success'),
             'features' => $features,
             'total' => $total,
         ]);

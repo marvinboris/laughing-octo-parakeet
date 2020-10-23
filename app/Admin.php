@@ -13,7 +13,7 @@ class Admin extends Authenticatable
     protected $directory = '/admins/';
 
     protected $fillable = [
-        'name', 'email', 'password', 'phone', 'photo'
+        'name', 'email', 'password', 'phone', 'photo', 'language_id',
     ];
 
     protected $hidden = [
@@ -28,5 +28,10 @@ class Admin extends Authenticatable
     public function getPhotoAttribute($value)
     {
         return $value ? $this->directory . $value : null;
+    }
+
+    public function language()
+    {
+        return $this->belongsTo('App\Language');
     }
 }

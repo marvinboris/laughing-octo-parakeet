@@ -21,6 +21,7 @@ class UserSeeder extends Seeder
                 'phone' => '237655588688',
                 'password' => Hash::make('12345'),
                 'role_id' => Role::first()->id,
+                'language_id' => 1,
             ],
             [
                 'name' => 'Briand Yungong',
@@ -28,6 +29,7 @@ class UserSeeder extends Seeder
                 'phone' => '237694422723',
                 'password' => Hash::make('11223344'),
                 'role_id' => Role::first()->id,
+                'language_id' => 1,
             ],
         ];
 

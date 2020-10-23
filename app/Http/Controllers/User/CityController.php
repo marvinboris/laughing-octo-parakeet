@@ -64,9 +64,12 @@ class CityController extends Controller
 
     public function show($id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $city = City::find($id);
         if (!$city) return response()->json([
-            'message' => UtilController::message('Ville inexistante.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['cities']['not_found'], 'danger'),
         ]);
 
         return response()->json([
@@ -76,6 +79,9 @@ class CityController extends Controller
 
     public function store(Request $request)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $request->validate($this->rules);
 
         $input = $request->all();
@@ -83,15 +89,18 @@ class CityController extends Controller
         City::create($input);
 
         return response()->json([
-            'message' => UtilController::message('Ville créée avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['cities']['created'], 'success'),
         ]);
     }
 
     public function update(Request $request, $id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $city = City::find($id);
         if (!$city) return response()->json([
-            'message' => UtilController::message('Ville inexistante.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['cities']['not_found'], 'danger'),
         ]);
 
         $request->validate($this->rules);
@@ -101,16 +110,19 @@ class CityController extends Controller
         $city->update($input);
 
         return response()->json([
-            'message' => UtilController::message('Ville modifiée avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['cities']['updated'], 'success'),
             'city' => $city,
         ]);
     }
 
     public function destroy($id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $city = City::find($id);
         if (!$city) return response()->json([
-            'message' => UtilController::message('Ville inexistante.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['cities']['not_found'], 'danger'),
         ]);
 
         $city->delete();
@@ -121,7 +133,7 @@ class CityController extends Controller
         $total = $data['total'];
 
         return response()->json([
-            'message' => UtilController::message('Ville supprimée avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['cities']['deleted'], 'success'),
             'cities' => $cities,
             'total' => $total,
         ]);

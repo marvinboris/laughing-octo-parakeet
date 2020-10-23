@@ -92,11 +92,14 @@ class UserController extends Controller
 
     public function show($id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $user = User::find($id);
         if (!$user) return response()->json([
-            'message' => UtilController::message('Utilisateur inexistant.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['users']['not_found'], 'danger'),
         ]);
-        
+
         $roles = [];
         foreach (Role::all() as $city) {
             $roles[] = array_merge($city->toArray(), []);
@@ -110,12 +113,16 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $cms = UtilController::cms();
+        $admin = UtilController::get(request());
+
         $request->validate($this->rules);
 
         $input = $request->except('photo');
 
         $input['phone'] = '237' . $input['phone'];
         $input['password'] = Hash::make($input['password']);
+        $input['language_id'] = 1;
 
         if ($file = $request->file('photo')) {
             $fileName = time() . $file->getClientOriginalName();
@@ -126,15 +133,18 @@ class UserController extends Controller
         User::create($input);
 
         return response()->json([
-            'message' => UtilController::message('Utilisateur créé avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$admin->language->abbr]['messages']['users']['created'], 'success'),
         ]);
     }
 
     public function update(Request $request, $id)
     {
+        $cms = UtilController::cms();
+        $admin = UtilController::get(request());
+
         $user = User::find($id);
         if (!$user) return response()->json([
-            'message' => UtilController::message('Utilisateur inexistant.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$admin->language->abbr]['messages']['users']['not_found'], 'danger'),
         ]);
 
         $rules = $this->rules;
@@ -156,16 +166,19 @@ class UserController extends Controller
         $user->update($input);
 
         return response()->json([
-            'message' => UtilController::message('Utilisateur modifié avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$admin->language->abbr]['messages']['users']['updated'], 'success'),
             'user' => $user,
         ]);
     }
 
     public function destroy($id)
     {
+        $cms = UtilController::cms();
+        $admin = UtilController::get(request());
+
         $user = User::find($id);
         if (!$user) return response()->json([
-            'message' => UtilController::message('Utilisateur inexistant.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$admin->language->abbr]['messages']['users']['not_found'], 'danger'),
         ]);
 
         if ($user->photo) unlink(public_path($user->photo));
@@ -177,7 +190,7 @@ class UserController extends Controller
         $total = $data['total'];
 
         return response()->json([
-            'message' => UtilController::message('Utilisateur supprimé avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$admin->language->abbr]['messages']['users']['deleted'], 'success'),
             'users' => $users,
             'total' => $total,
         ]);

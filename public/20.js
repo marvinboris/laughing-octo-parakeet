@@ -107,6 +107,7 @@ __webpack_require__.r(__webpack_exports__);
         "general": "General",
         "components": "Components",
         "auth": "Auth",
+        "messages": "Messages",
         "backend": "Backend",
         "frontend": "Frontend"
       },
@@ -312,6 +313,7 @@ __webpack_require__.r(__webpack_exports__);
       "title": "CMS",
       "global": "Global",
       "general": "General",
+      "messages": "Messages",
       "frontend": "Frontend",
       "components": "Components",
       "backend": "Backend",
@@ -535,7 +537,7 @@ var SubNavLinks = function SubNavLinks(_ref2) {
   };
 
   var navItems = Object.keys(backend).map(function (key) {
-    var id = language.abbr + '-' + key;
+    var id = "".concat(language.abbr, "-").concat(key);
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__["NavItem"], {
       key: id
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__["NavLink"], {

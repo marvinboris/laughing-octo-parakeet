@@ -1,8 +1,8 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[69],{
 
-/***/ "./resources/js/src/containers/Backend/User/Languages/Add.js":
+/***/ "./resources/js/src/containers/Backend/User/Features/Edit.js":
 /*!*******************************************************************!*\
-  !*** ./resources/js/src/containers/Backend/User/Languages/Add.js ***!
+  !*** ./resources/js/src/containers/Backend/User/Features/Edit.js ***!
   \*******************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -28,13 +28,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_UI_Button_BetweenButton_BetweenButton__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../../components/UI/Button/BetweenButton/BetweenButton */ "./resources/js/src/components/UI/Button/BetweenButton/BetweenButton.js");
 /* harmony import */ var _components_Feedback_Feedback__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../../components/Feedback/Feedback */ "./resources/js/src/components/Feedback/Feedback.js");
 /* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../../../store/actions */ "./resources/js/src/store/actions/index.js");
+/* harmony import */ var _shared_utility__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../../../shared/utility */ "./resources/js/src/shared/utility.js");
 
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -80,15 +81,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var Add = /*#__PURE__*/function (_Component) {
-  _inherits(Add, _Component);
 
-  var _super = _createSuper(Add);
+var Edit = /*#__PURE__*/function (_Component) {
+  _inherits(Edit, _Component);
 
-  function Add() {
+  var _super = _createSuper(Edit);
+
+  function Edit() {
     var _this;
 
-    _classCallCheck(this, Add);
+    _classCallCheck(this, Edit);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
@@ -98,9 +100,7 @@ var Add = /*#__PURE__*/function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       name: '',
-      abbr: '',
-      flag: '',
-      countries: []
+      prefix: ''
     });
 
     _defineProperty(_assertThisInitialized(_this), "submitHandler", /*#__PURE__*/function () {
@@ -111,7 +111,7 @@ var Add = /*#__PURE__*/function (_Component) {
               case 0:
                 e.preventDefault();
                 _context.next = 3;
-                return _this.props.post(e.target);
+                return _this.props.patch(_this.props.match.params.featureId, e.target);
 
               case 3:
               case "end":
@@ -138,57 +138,18 @@ var Add = /*#__PURE__*/function (_Component) {
     return _this;
   }
 
-  _createClass(Add, [{
+  _createClass(Edit, [{
     key: "componentDidMount",
     value: function () {
       var _componentDidMount = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var cors, phoneRes, namesRes, phone, names, countries;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 this.props.reset();
-                cors = 'https://cors-anywhere.herokuapp.com/';
-                _context2.next = 4;
-                return fetch(cors + 'http://country.io/phone.json', {
-                  method: 'GET',
-                  mode: 'cors'
-                });
+                this.props.get(this.props.match.params.featureId);
 
-              case 4:
-                phoneRes = _context2.sent;
-                _context2.next = 7;
-                return fetch(cors + 'http://country.io/names.json', {
-                  method: 'GET',
-                  mode: 'cors'
-                });
-
-              case 7:
-                namesRes = _context2.sent;
-                _context2.next = 10;
-                return phoneRes.json();
-
-              case 10:
-                phone = _context2.sent;
-                _context2.next = 13;
-                return namesRes.json();
-
-              case 13:
-                names = _context2.sent;
-                countries = Object.keys(phone).map(function (key) {
-                  return {
-                    country: key,
-                    code: phone[key],
-                    name: names[key]
-                  };
-                }).sort(function (a, b) {
-                  return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
-                });
-                this.setState({
-                  countries: countries
-                });
-
-              case 16:
+              case 2:
               case "end":
                 return _context2.stop();
             }
@@ -213,38 +174,26 @@ var Add = /*#__PURE__*/function (_Component) {
       var _this$props = this.props,
           _this$props$content$c = _this$props.content.cms.pages,
           save = _this$props$content$c.components.form.save,
-          _this$props$content$c2 = _this$props$content$c.backend.pages.languages,
+          _this$props$content$c2 = _this$props$content$c.backend.pages.features,
           title = _this$props$content$c2.title,
-          add = _this$props$content$c2.add,
+          edit = _this$props$content$c2.edit,
           index = _this$props$content$c2.index,
           form = _this$props$content$c2.form,
-          _this$props$backend$l = _this$props.backend.languages,
-          loading = _this$props$backend$l.loading,
-          error = _this$props$backend$l.error,
-          message = _this$props$backend$l.message,
+          _this$props$backend$f = _this$props.backend.features,
+          loading = _this$props$backend$f.loading,
+          error = _this$props$backend$f.error,
+          message = _this$props$backend$f.message,
           features = _this$props.auth.data.role.features;
       var _this$state = this.state,
           name = _this$state.name,
-          abbr = _this$state.abbr,
-          flag = _this$state.flag,
-          countries = _this$state.countries;
+          prefix = _this$state.prefix;
       var content = null;
       var errors = null;
       var feature = features.find(function (f) {
-        return f.prefix === 'languages';
+        return f.prefix === 'features';
       });
-      var redirect = !(feature && JSON.parse(feature.permissions).includes('c')) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Redirect"], {
+      var redirect = !(feature && JSON.parse(feature.permissions).includes('u')) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Redirect"], {
         to: "/user/dashboard"
-      });
-      var countriesOptions = countries.map(function (_ref2) {
-        var country = _ref2.country,
-            code = _ref2.code,
-            name = _ref2.name;
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
-          key: country,
-          value: country,
-          code: code
-        }, name);
       });
       if (loading) content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__["Col"], {
         xs: 12
@@ -254,20 +203,24 @@ var Add = /*#__PURE__*/function (_Component) {
         }));
         content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__["Row"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Form_Form__WEBPACK_IMPORTED_MODULE_12__["default"], {
           onSubmit: this.submitHandler,
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faLanguage"],
-          title: add,
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faTools"],
+          title: edit,
           list: index,
-          link: "/user/languages",
+          link: "/user/features",
           innerClassName: "row",
           className: "shadow-sm"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__["Col"], {
           lg: 8
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Feedback_Feedback__WEBPACK_IMPORTED_MODULE_15__["default"], {
           message: message
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__["Row"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_13__["default"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__["Row"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+          type: "hidden",
+          name: "_method",
+          defaultValue: "PATCH"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_13__["default"], {
           type: "text",
           className: "col-md-6",
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faLanguage"],
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faTools"],
           onChange: this.inputChangeHandler,
           value: name,
           name: "name",
@@ -276,35 +229,13 @@ var Add = /*#__PURE__*/function (_Component) {
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_13__["default"], {
           type: "text",
           className: "col-md-6",
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faLanguage"],
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faAnchor"],
           onChange: this.inputChangeHandler,
-          value: abbr,
-          name: "abbr",
+          value: prefix,
+          name: "prefix",
           required: true,
-          placeholder: form.abbr
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_13__["default"], {
-          className: "col-md-6",
-          type: "select",
-          addon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
-            className: "text-secondary text-small d-inline-flex"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-            className: "rounded-circle overflow-hidden position-relative d-flex justify-content-center align-items-center",
-            style: {
-              width: 30,
-              height: 30
-            }
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
-            className: "flag-icon text-xx-large position-absolute flag-icon-".concat(flag.toLowerCase())
-          }))),
-          onChange: this.inputChangeHandler,
-          value: flag,
-          validation: {
-            required: true
-          },
-          name: "flag",
-          required: true,
-          placeholder: form.select_flag
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", null, form.select_flag), countriesOptions), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+          placeholder: form.prefix
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           className: "col-12"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_UI_Button_BetweenButton_BetweenButton__WEBPACK_IMPORTED_MODULE_14__["default"], {
           color: "green",
@@ -314,20 +245,34 @@ var Add = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "bg-soft py-4 pl-5 pr-4 position-relative"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Breadcrumb_Breadcrumb__WEBPACK_IMPORTED_MODULE_7__["default"], {
-        main: add,
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faLanguage"]
+        items: [{
+          to: '/user/features',
+          content: index
+        }],
+        main: edit,
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faTools"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_UI_Titles_SpecialTitle_SpecialTitle__WEBPACK_IMPORTED_MODULE_8__["default"], {
         user: true,
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faLanguage"]
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faTools"]
       }, title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_UI_Titles_Subtitle_Subtitle__WEBPACK_IMPORTED_MODULE_9__["default"], {
         user: true
-      }, add)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, edit)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "p-4 pb-0"
       }, redirect, errors, content));
     }
+  }], [{
+    key: "getDerivedStateFromProps",
+    value: function getDerivedStateFromProps(nextProps, prevState) {
+      if (nextProps.backend.features.feature && prevState.name === '') {
+        var feature = nextProps.backend.features.feature;
+        return Object(_shared_utility__WEBPACK_IMPORTED_MODULE_17__["updateObject"])(prevState, _objectSpread({}, feature));
+      }
+
+      return prevState;
+    }
   }]);
 
-  return Add;
+  return Edit;
 }(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
 
 var mapStateToProps = function mapStateToProps(state) {
@@ -336,16 +281,19 @@ var mapStateToProps = function mapStateToProps(state) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    post: function post(data) {
-      return dispatch(_store_actions__WEBPACK_IMPORTED_MODULE_16__["postLanguages"](data));
+    get: function get(id) {
+      return dispatch(_store_actions__WEBPACK_IMPORTED_MODULE_16__["getFeature"](id));
+    },
+    patch: function patch(id, data) {
+      return dispatch(_store_actions__WEBPACK_IMPORTED_MODULE_16__["patchFeatures"](id, data));
     },
     reset: function reset() {
-      return dispatch(_store_actions__WEBPACK_IMPORTED_MODULE_16__["resetLanguages"]());
+      return dispatch(_store_actions__WEBPACK_IMPORTED_MODULE_16__["resetFeatures"]());
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Add)));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Edit)));
 
 /***/ })
 

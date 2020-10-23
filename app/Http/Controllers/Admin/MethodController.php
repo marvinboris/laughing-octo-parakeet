@@ -64,9 +64,12 @@ class MethodController extends Controller
 
     public function show($id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $method = Method::find($id);
         if (!$method) return response()->json([
-            'message' => UtilController::message('Méthode inexistante.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['methods']['not_found'], 'danger'),
         ]);
 
         return response()->json([
@@ -76,6 +79,9 @@ class MethodController extends Controller
 
     public function store(Request $request)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $request->validate($this->rules);
 
         $input = $request->all();
@@ -83,15 +89,18 @@ class MethodController extends Controller
         Method::create($input);
 
         return response()->json([
-            'message' => UtilController::message('Méthode créée avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['methods']['created'], 'success'),
         ]);
     }
 
     public function update(Request $request, $id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $method = Method::find($id);
         if (!$method) return response()->json([
-            'message' => UtilController::message('Méthode inexistante.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['methods']['not_found'], 'danger'),
         ]);
 
         $request->validate($this->rules);
@@ -101,16 +110,19 @@ class MethodController extends Controller
         $method->update($input);
 
         return response()->json([
-            'message' => UtilController::message('Méthode modifiée avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['methods']['updated'], 'success'),
             'method' => $method,
         ]);
     }
 
     public function destroy($id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $method = Method::find($id);
         if (!$method) return response()->json([
-            'message' => UtilController::message('Méthode inexistante.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['methods']['not_found'], 'danger'),
         ]);
 
         $method->delete();
@@ -121,7 +133,7 @@ class MethodController extends Controller
         $total = $data['total'];
 
         return response()->json([
-            'message' => UtilController::message('Méthode supprimée avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['methods']['deleted'], 'success'),
             'methods' => $methods,
             'total' => $total,
         ]);

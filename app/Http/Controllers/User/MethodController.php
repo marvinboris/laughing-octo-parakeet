@@ -4,13 +4,15 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\UtilController;
-use App\Method;
+use App\Language;
 use Illuminate\Http\Request;
 
-class MethodController extends Controller
+class LanguageController extends Controller
 {
     private $rules = [
         'name' => 'required|string',
+        'abbr' => 'required|string',
+        'flag' => 'required|string',
     ];
 
     private function data()
@@ -21,14 +23,16 @@ class MethodController extends Controller
 
         $total = 0;
 
-        $methods = [];
-        $filteredData = Method::orderBy('id');
+        $languages = [];
+        $filteredData = Language::orderBy('id');
 
         $filteredData = $filteredData
             ->when($search, function ($query, $search) {
                 if ($search !== "")
                     $query
-                        ->where('name', 'LIKE', "%$search%");
+                        ->where('name', 'LIKE', "%$search%")
+                        ->orWhere('abbr', 'LIKE', "%$search%")
+                        ->orWhere('flag', 'LIKE', "%$search%");
             });
 
         $total = $filteredData->count();
@@ -37,12 +41,12 @@ class MethodController extends Controller
 
         $filteredData = $filteredData->get();
 
-        foreach ($filteredData as $method) {
-            $methods[] = $method->toArray();
+        foreach ($filteredData as $language) {
+            $languages[] = $language->toArray();
         }
 
         return [
-            'methods' => $methods,
+            'languages' => $languages,
             'total' => $total,
         ];
     }
@@ -53,76 +57,93 @@ class MethodController extends Controller
     {
         $data = $this->data();
 
-        $methods = $data['methods'];
+        $languages = $data['languages'];
         $total = $data['total'];
 
         return response()->json([
-            'methods' => $methods,
+            'languages' => $languages,
             'total' => $total,
         ]);
     }
 
     public function show($id)
     {
-        $method = Method::find($id);
-        if (!$method) return response()->json([
-            'message' => UtilController::message('Méthode inexistante.', 'danger'),
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
+        $language = Language::find($id);
+        if (!$language) return response()->json([
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['languages']['not_found'], 'danger'),
         ]);
 
         return response()->json([
-            'method' => $method,
+            'language' => $language,
         ]);
     }
 
     public function store(Request $request)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $request->validate($this->rules);
 
         $input = $request->all();
 
-        Method::create($input);
+        $cms['pages'][$request->abbr] = $cms['pages']['en'];
+
+        $contentText = json_encode($cms);
+        file_put_contents(base_path('cms.json'), $contentText);
+
+        Language::create($input);
 
         return response()->json([
-            'message' => UtilController::message('Méthode créée avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['languages']['created'], 'success'),
         ]);
     }
 
     public function update(Request $request, $id)
     {
-        $method = Method::find($id);
-        if (!$method) return response()->json([
-            'message' => UtilController::message('Méthode inexistante.', 'danger'),
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
+        $language = Language::find($id);
+        if (!$language) return response()->json([
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['languages']['not_found'], 'danger'),
         ]);
 
         $request->validate($this->rules);
 
         $input = $request->all();
 
-        $method->update($input);
+        $language->update($input);
 
         return response()->json([
-            'message' => UtilController::message('Méthode modifiée avec succès.', 'success'),
-            'method' => $method,
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['languages']['updated'], 'success'),
+            'language' => $language,
         ]);
     }
 
     public function destroy($id)
     {
-        $method = Method::find($id);
-        if (!$method) return response()->json([
-            'message' => UtilController::message('Méthode inexistante.', 'danger'),
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
+        $language = Language::find($id);
+        if (!$language) return response()->json([
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['languages']['not_found'], 'danger'),
         ]);
 
-        $method->delete();
+        $language->delete();
 
         $data = $this->data();
 
-        $methods = $data['methods'];
+        $languages = $data['languages'];
         $total = $data['total'];
 
         return response()->json([
-            'message' => UtilController::message('Méthode supprimée avec succès.', 'success'),
-            'methods' => $methods,
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['languages']['deleted'], 'success'),
+            'languages' => $languages,
             'total' => $total,
         ]);
     }

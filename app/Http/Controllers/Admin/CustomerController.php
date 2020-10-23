@@ -90,9 +90,12 @@ class CustomerController extends Controller
 
     public function show($id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $customer = Customer::find($id);
         if (!$customer) return response()->json([
-            'message' => UtilController::message('Client inexistant.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['customers']['not_found'], 'danger'),
         ]);
 
         $customer = $customer->toArray() + [
@@ -115,6 +118,9 @@ class CustomerController extends Controller
 
     public function store(Request $request)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $request->validate($this->rules);
 
         $input = $request->except('photo');
@@ -130,15 +136,18 @@ class CustomerController extends Controller
         Customer::create($input);
 
         return response()->json([
-            'message' => UtilController::message('Client créé avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['customers']['created'], 'success'),
         ]);
     }
 
     public function update(Request $request, $id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $customer = Customer::find($id);
         if (!$customer) return response()->json([
-            'message' => UtilController::message('Client inexistant.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['customers']['not_found'], 'danger'),
         ]);
 
         $request->validate($this->rules);
@@ -158,16 +167,19 @@ class CustomerController extends Controller
         return response()->json([
             'message' => [
                 'type' => 'success',
-                'content' => 'Client modifié avec succès.'
+                'content' => $cms['pages'][$user->language->abbr]['messages']['customers']['updated']
             ],
         ]);
     }
 
     public function destroy($id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $customer = Customer::find($id);
         if (!$customer) return response()->json([
-            'message' => UtilController::message('Client inexistant.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['customers']['not_found'], 'danger'),
         ]);
 
         if ($customer->photo) unlink(public_path($customer->photo));
@@ -179,7 +191,7 @@ class CustomerController extends Controller
         $total = $data['total'];
 
         return response()->json([
-            'message' => UtilController::message('Client supprimé avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['customers']['deleted'], 'success'),
             'customers' => $customers,
             'total' => $total,
         ]);

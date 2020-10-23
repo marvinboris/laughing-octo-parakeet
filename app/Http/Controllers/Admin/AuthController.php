@@ -111,7 +111,8 @@ class AuthController extends Controller
                 )->toDateTimeString(),
                 'userData' => array_merge($admin->toArray(), [
                     'notifications' => $admin->unreadNotifications()->latest()->limit(5)->get(),
-                    // 'messages' => ContactUs::whereStatus(0)->latest()->limit(5)->get()
+                    // 'messages' => ContactUs::whereStatus(0)->latest()->limit(5)->get(),
+                    'language' => $admin->language->abbr
                 ])
             ]);
         }

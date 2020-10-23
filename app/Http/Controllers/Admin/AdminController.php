@@ -71,9 +71,12 @@ class AdminController extends Controller
 
     public function show($id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $admin = Admin::find($id);
         if (!$admin) return response()->json([
-            'message' => UtilController::message('Administrateur inexistant.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['admins']['not_found'], 'danger'),
         ]);
 
         return response()->json([
@@ -83,6 +86,9 @@ class AdminController extends Controller
 
     public function store(Request $request)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $request->validate($this->rules);
 
         $input = $request->except('photo');
@@ -99,15 +105,18 @@ class AdminController extends Controller
         Admin::create($input);
 
         return response()->json([
-            'message' => UtilController::message('Administrateur créé avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['admins']['created'], 'success'),
         ]);
     }
 
     public function update(Request $request, $id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $admin = Admin::find($id);
         if (!$admin) return response()->json([
-            'message' => UtilController::message('Administrateur inexistant.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['admins']['not_found'], 'danger'),
         ]);
 
         $rules = $this->rules;
@@ -129,16 +138,19 @@ class AdminController extends Controller
         $admin->update($input);
 
         return response()->json([
-            'message' => UtilController::message('Administrateur modifié avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['admins']['updated'], 'success'),
             'admin' => $admin,
         ]);
     }
 
     public function destroy($id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $admin = Admin::find($id);
         if (!$admin) return response()->json([
-            'message' => UtilController::message('Administrateur inexistant.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['admins']['not_found'], 'danger'),
         ]);
 
         if ($admin->photo) unlink(public_path($admin->photo));
@@ -150,7 +162,7 @@ class AdminController extends Controller
         $total = $data['total'];
 
         return response()->json([
-            'message' => UtilController::message('Administrateur supprimé avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['admins']['deleted'], 'success'),
             'admins' => $admins,
             'total' => $total,
         ]);

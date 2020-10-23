@@ -68,9 +68,12 @@ class LanguageController extends Controller
 
     public function show($id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $language = Language::find($id);
         if (!$language) return response()->json([
-            'message' => UtilController::message('Langue inexistante.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['languages']['not_found'], 'danger'),
         ]);
 
         return response()->json([
@@ -80,12 +83,12 @@ class LanguageController extends Controller
 
     public function store(Request $request)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $request->validate($this->rules);
 
         $input = $request->all();
-
-        $jsonString = file_get_contents(base_path('cms.json'));
-        $cms = json_decode($jsonString, true);
 
         $cms['pages'][$request->abbr] = $cms['pages']['en'];
 
@@ -95,15 +98,18 @@ class LanguageController extends Controller
         Language::create($input);
 
         return response()->json([
-            'message' => UtilController::message('Langue créée avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['languages']['created'], 'success'),
         ]);
     }
 
     public function update(Request $request, $id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $language = Language::find($id);
         if (!$language) return response()->json([
-            'message' => UtilController::message('Langue inexistante.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['languages']['not_found'], 'danger'),
         ]);
 
         $request->validate($this->rules);
@@ -113,16 +119,19 @@ class LanguageController extends Controller
         $language->update($input);
 
         return response()->json([
-            'message' => UtilController::message('Langue modifiée avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['languages']['updated'], 'success'),
             'language' => $language,
         ]);
     }
 
     public function destroy($id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $language = Language::find($id);
         if (!$language) return response()->json([
-            'message' => UtilController::message('Langue inexistante.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['languages']['not_found'], 'danger'),
         ]);
 
         $language->delete();
@@ -133,7 +142,7 @@ class LanguageController extends Controller
         $total = $data['total'];
 
         return response()->json([
-            'message' => UtilController::message('Langue supprimée avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['languages']['deleted'], 'success'),
             'languages' => $languages,
             'total' => $total,
         ]);

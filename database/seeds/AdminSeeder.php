@@ -18,13 +18,15 @@ class AdminSeeder extends Seeder
                 'name' => 'Boris Ndouma',
                 'phone' => '237655588688',
                 'email' => 'jaris.ultio.21@gmail.com',
-                'password' => Hash::make('adminadmin')
+                'password' => Hash::make('adminadmin'),
+                'language_id' => 1,
             ],
             [
                 'name' => 'Briand Yungong',
                 'phone' => '237694422723',
                 'email' => 'yungongbriand@gmail.com',
-                'password' => Hash::make('11223344')
+                'password' => Hash::make('11223344'),
+                'language_id' => 1,
             ],
         ];
 

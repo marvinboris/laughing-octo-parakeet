@@ -94,6 +94,7 @@ export default ({ data, role = 'user', notifications = [], toggle, isOpen, selec
                 {sideDrawerItem(false, null, cms_, faWrench, "/user/cms", [
                     { link: '/global', text: cms_.global },
                     { link: '/general', text: cms_.general },
+                    { link: '/messages', text: cms_.messages },
                     { link: '/components', text: cms_.components },
                     { link: '/auth', text: cms_.auth },
                     { link: '/frontend', text: cms_.frontend },
@@ -137,6 +138,7 @@ export default ({ data, role = 'user', notifications = [], toggle, isOpen, selec
                 {sideDrawerItem(true, null, cms_, faWrench, "/admin/cms", [
                     { link: '/global', text: cms_.global },
                     { link: '/general', text: cms_.general },
+                    { link: '/messages', text: cms_.messages },
                     { link: '/components', text: cms_.components },
                     { link: '/auth', text: cms_.auth },
                     { link: '/frontend', text: cms_.frontend },

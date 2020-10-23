@@ -107,6 +107,7 @@ __webpack_require__.r(__webpack_exports__);
         "general": "General",
         "components": "Components",
         "auth": "Auth",
+        "messages": "Messages",
         "backend": "Backend",
         "frontend": "Frontend"
       },
@@ -312,6 +313,7 @@ __webpack_require__.r(__webpack_exports__);
       "title": "CMS",
       "global": "Global",
       "general": "General",
+      "messages": "Messages",
       "frontend": "Frontend",
       "components": "Components",
       "backend": "Backend",

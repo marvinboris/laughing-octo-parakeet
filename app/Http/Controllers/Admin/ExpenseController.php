@@ -99,9 +99,12 @@ class ExpenseController extends Controller
 
     public function show($id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $expense = Expense::find($id);
         if (!$expense) return response()->json([
-            'message' => UtilController::message('Dépense inexistante.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['expenses']['not_found'], 'danger'),
         ]);
 
         $expense = $expense->toArray() + [
@@ -127,6 +130,9 @@ class ExpenseController extends Controller
 
     public function store(Request $request)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $request->validate($this->rules);
 
         $input = $request->except('proof');
@@ -142,15 +148,18 @@ class ExpenseController extends Controller
         Expense::create($input);
 
         return response()->json([
-            'message' => UtilController::message('Dépense créée avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['expenses']['created'], 'success'),
         ]);
     }
 
     public function update(Request $request, $id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $expense = Expense::find($id);
         if (!$expense) return response()->json([
-            'message' => UtilController::message('Dépense inexistante.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['expenses']['not_found'], 'danger'),
         ]);
 
         $request->validate($this->rules);
@@ -169,16 +178,19 @@ class ExpenseController extends Controller
         return response()->json([
             'message' => [
                 'type' => 'success',
-                'content' => 'Dépense modifiée avec succès.'
+                'content' => $cms['pages'][$user->language->abbr]['messages']['expenses']['updated']
             ],
         ]);
     }
 
     public function destroy($id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $expense = Expense::find($id);
         if (!$expense) return response()->json([
-            'message' => UtilController::message('Dépense inexistante.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['expenses']['not_found'], 'danger'),
         ]);
 
         if ($expense->proof) unlink(public_path($expense->proof));
@@ -190,7 +202,7 @@ class ExpenseController extends Controller
         $total = $data['total'];
 
         return response()->json([
-            'message' => UtilController::message('Dépense supprimée avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['expenses']['deleted'], 'success'),
             'expenses' => $expenses,
             'total' => $total,
         ]);

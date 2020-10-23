@@ -48,6 +48,7 @@ export const authUserLogin = data => async dispatch => {
 
         const expirationDate = new Date(expires_at);
         localStorage.setItem('token', token);
+        localStorage.setItem('lang', userData.language);
         localStorage.setItem('expirationDate', expirationDate);
         dispatch(authUserLoginSuccess(token, userData));
         dispatch(checkAuthTimeout(expires_at - new Date().getTime()));
@@ -104,6 +105,7 @@ export const authAdminVerify = data => async dispatch => {
 
         const expirationDate = new Date(expires_at);
         localStorage.setItem('token', token);
+        localStorage.setItem('lang', userData.language);
         localStorage.setItem('expirationDate', expirationDate);
         dispatch(authAdminVerifySuccess(token, userData));
         dispatch(checkAuthTimeout(expires_at - new Date().getTime()));
@@ -175,12 +177,13 @@ export const authCheckState = () => async dispatch => {
             if (res.status === 521) await dispatch(authLogoutSuccess());
             else if (res.status !== 200 && res.status !== 201) throw new Error(resData.error.message);
 
-            const { data, role } = resData;
+            const { data, role, language } = resData;
 
             const expirationDate = new Date(localStorage.getItem('expirationDate'));
             if (expirationDate > new Date()) {
                 if (role === 'admin') dispatch(authAdminVerifySuccess(token, data));
                 else if (role === 'user') dispatch(authUserLoginSuccess(token, data));
+                localStorage.setItem('lang', data.language);
                 dispatch(checkAuthTimeout(expirationDate.getTime() - new Date().getTime()));
             } else dispatch(authLogoutSuccess());
         } catch (err) {

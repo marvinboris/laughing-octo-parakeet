@@ -96,6 +96,7 @@ export default {
                 "general": "General",
                 "components": "Components",
                 "auth": "Auth",
+                "messages": "Messages",
                 "backend": "Backend",
                 "frontend": "Frontend"
             },
@@ -301,6 +302,7 @@ export default {
             "title": "CMS",
             "global": "Global",
             "general": "General",
+            "messages": "Messages",
             "frontend": "Frontend",
             "components": "Components",
             "backend": "Backend",

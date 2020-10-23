@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[36],{
 
-/***/ "./resources/js/src/containers/Backend/Admin/Expenses/Edit.js":
-/*!********************************************************************!*\
-  !*** ./resources/js/src/containers/Backend/Admin/Expenses/Edit.js ***!
-  \********************************************************************/
+/***/ "./resources/js/src/containers/Backend/Admin/Customers/Edit.js":
+/*!*********************************************************************!*\
+  !*** ./resources/js/src/containers/Backend/Admin/Customers/Edit.js ***!
+  \*********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -84,15 +84,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var Edit = /*#__PURE__*/function (_Component) {
-  _inherits(Edit, _Component);
+var Add = /*#__PURE__*/function (_Component) {
+  _inherits(Add, _Component);
 
-  var _super = _createSuper(Edit);
+  var _super = _createSuper(Add);
 
-  function Edit() {
+  function Add() {
     var _this;
 
-    _classCallCheck(this, Edit);
+    _classCallCheck(this, Add);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
@@ -101,12 +101,14 @@ var Edit = /*#__PURE__*/function (_Component) {
     _this = _super.call.apply(_super, [this].concat(args));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
-      amount: '',
-      date: '',
-      description: '',
-      proof: null,
-      method_id: '',
-      expendable_type: ''
+      name: '',
+      phone: '',
+      photo: null,
+      city: '',
+      quarter: '',
+      nid_canal: '',
+      nid_eneo: '',
+      nid_camwater: ''
     });
 
     _defineProperty(_assertThisInitialized(_this), "submitHandler", /*#__PURE__*/function () {
@@ -117,7 +119,7 @@ var Edit = /*#__PURE__*/function (_Component) {
               case 0:
                 e.preventDefault();
                 _context.next = 3;
-                return _this.props.patch(_this.props.match.params.expenseId, e.target);
+                return _this.props.patch(_this.props.match.params.customerId, e.target);
 
               case 3:
               case "end":
@@ -142,13 +144,13 @@ var Edit = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "fileUpload", function () {
-      return document.getElementById('proof').click();
+      return document.getElementById('photo').click();
     });
 
     return _this;
   }
 
-  _createClass(Edit, [{
+  _createClass(Add, [{
     key: "componentDidMount",
     value: function () {
       var _componentDidMount = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
@@ -157,7 +159,7 @@ var Edit = /*#__PURE__*/function (_Component) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 this.props.reset();
-                this.props.get(this.props.match.params.expenseId);
+                this.props.get(this.props.match.params.customerId);
 
               case 2:
               case "end":
@@ -186,43 +188,46 @@ var Edit = /*#__PURE__*/function (_Component) {
           _this$props$content$c2 = _this$props$content$c.components.form,
           save = _this$props$content$c2.save,
           selected_file = _this$props$content$c2.selected_file,
-          _this$props$content$c3 = _this$props$content$c.backend.pages.expenses,
+          _this$props$content$c3 = _this$props$content$c.backend.pages.customers,
           title = _this$props$content$c3.title,
           edit = _this$props$content$c3.edit,
           index = _this$props$content$c3.index,
           form = _this$props$content$c3.form,
-          name = _this$props.auth.data.name,
-          _this$props$backend$e = _this$props.backend.expenses,
-          loading = _this$props$backend$e.loading,
-          error = _this$props$backend$e.error,
-          message = _this$props$backend$e.message,
-          methods = _this$props$backend$e.methods,
-          expendables = _this$props$backend$e.expendables,
-          expense = _this$props$backend$e.expense;
+          _this$props$backend$c = _this$props.backend.customers,
+          loading = _this$props$backend$c.loading,
+          error = _this$props$backend$c.error,
+          message = _this$props$backend$c.message,
+          cities = _this$props$backend$c.cities,
+          customer = _this$props$backend$c.customer;
       var _this$state = this.state,
-          amount = _this$state.amount,
-          date = _this$state.date,
-          description = _this$state.description,
-          proof = _this$state.proof,
-          method_id = _this$state.method_id,
-          expendable_type = _this$state.expendable_type;
+          name = _this$state.name,
+          phone = _this$state.phone,
+          photo = _this$state.photo,
+          city = _this$state.city,
+          quarter = _this$state.quarter,
+          nid_canal = _this$state.nid_canal,
+          nid_eneo = _this$state.nid_eneo,
+          nid_camwater = _this$state.nid_camwater;
       var content = null;
       var errors = null;
-      if (!methods) methods = [];
-      var methodsOptions = methods.sort(function (a, b) {
+      if (!cities) cities = [];
+      var quarters = [];
+      if (city !== '') quarters = cities.find(function (c) {
+        return c.id === +city;
+      }).quarters;
+      var citiesOptions = cities.sort(function (a, b) {
         return a.name > b.name;
       }).map(function (item) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
-          key: JSON.stringify(item),
+          key: item.name,
           value: item.id
         }, item.name);
       });
-      if (!expendables) expendables = [];
-      var expendablesOptions = expendables.sort(function (a, b) {
+      var quartersOptions = quarters.sort(function (a, b) {
         return a.name > b.name;
       }).map(function (item) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
-          key: JSON.stringify(item),
+          key: item.name,
           value: item.id
         }, item.name);
       });
@@ -234,10 +239,10 @@ var Edit = /*#__PURE__*/function (_Component) {
         }));
         content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__["Row"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Form_Form__WEBPACK_IMPORTED_MODULE_13__["default"], {
           onSubmit: this.submitHandler,
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faMoneyBillWaveAlt"],
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faUserTie"],
           title: edit,
           list: index,
-          link: "/admin/expenses",
+          link: "/admin/customers",
           innerClassName: "row",
           className: "shadow-sm"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__["Col"], {
@@ -249,18 +254,6 @@ var Edit = /*#__PURE__*/function (_Component) {
           name: "_method",
           defaultValue: "PATCH"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_14__["default"], {
-          className: "col-lg-6",
-          type: "select",
-          name: "expendable_type",
-          placeholder: form.expendable_type,
-          onChange: this.inputChangeHandler,
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faMoneyBillWave"],
-          validation: {
-            required: true
-          },
-          required: true,
-          value: expendable_type
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", null, form.select_expendable_type), expendablesOptions), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_14__["default"], {
           type: "text",
           className: "col-md-6",
           icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faUser"],
@@ -268,51 +261,64 @@ var Edit = /*#__PURE__*/function (_Component) {
           value: name,
           name: "name",
           required: true,
-          placeholder: "Nom de l'utilisateur",
-          readonly: true
+          placeholder: form.name
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_14__["default"], {
-          className: "col-lg-6",
-          type: "select",
-          name: "method_id",
-          placeholder: form.method,
+          type: "tel",
+          className: "col-md-6",
+          addon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+            className: "text-secondary text-small"
+          }, "+237"),
           onChange: this.inputChangeHandler,
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faMoneyBillWave"],
-          validation: {
-            required: true
-          },
+          value: phone,
+          name: "phone",
           required: true,
-          value: method_id
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", null, form.select_method), methodsOptions), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_14__["default"], {
-          type: "date",
+          placeholder: form.phone
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_14__["default"], {
+          type: "select",
+          className: "col-md-6",
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faCity"],
+          onChange: this.inputChangeHandler,
+          value: city,
+          name: "city",
+          required: true,
+          placeholder: form.select_city
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", null, form.select_city), citiesOptions), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_14__["default"], {
+          type: "select",
+          className: "col-md-6",
+          icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faBuilding"],
+          onChange: this.inputChangeHandler,
+          value: quarter,
+          name: "quarter",
+          required: true,
+          placeholder: form.select_quarter
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", null, form.select_quarter), quartersOptions), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_14__["default"], {
+          type: "text",
           className: "col-md-6",
           icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faCalendar"],
           onChange: this.inputChangeHandler,
-          value: date,
-          name: "date",
-          required: true,
-          placeholder: form.date
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_14__["default"], {
-          type: "number",
-          className: "col-md-6",
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faMoneyBillWaveAlt"],
-          onChange: this.inputChangeHandler,
-          value: amount,
-          name: "amount",
-          required: true,
-          placeholder: form.amount
+          value: nid_canal,
+          name: "nid_canal",
+          placeholder: form.nid_canal
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_14__["default"], {
           type: "text",
           className: "col-md-6",
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faEdit"],
+          icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faCalendar"],
           onChange: this.inputChangeHandler,
-          value: description,
-          name: "description",
-          required: true,
-          placeholder: form.description
+          value: nid_eneo,
+          name: "nid_eneo",
+          placeholder: form.nid_eneo
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Input_Input__WEBPACK_IMPORTED_MODULE_14__["default"], {
+          type: "text",
+          className: "col-md-6",
+          icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faCalendar"],
+          onChange: this.inputChangeHandler,
+          value: nid_camwater,
+          name: "nid_camwater",
+          placeholder: form.nid_camwater
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
           type: "file",
-          id: "proof",
-          name: "proof",
+          id: "photo",
+          name: "photo",
           className: "d-none",
           onChange: this.inputChangeHandler,
           accept: ".png,.jpg,.jpeg"
@@ -327,11 +333,11 @@ var Edit = /*#__PURE__*/function (_Component) {
           className: "embed-responsive embed-responsive-1by1 bg-soft border border-light d-flex justify-content-center align-items-center w-60 mx-auto",
           style: {
             cursor: 'pointer',
-            background: proof && "url(\"".concat(proof, "\") no-repeat center"),
+            background: photo && "url(\"".concat(photo, "\") no-repeat center"),
             backgroundSize: 'cover'
           },
           onClick: this.fileUpload
-        }, proof && proof !== expense.proof && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        }, photo && photo !== customer.photo && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           className: "text-center text-green"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_7__["FontAwesomeIcon"], {
           icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faCheckCircle"],
@@ -344,11 +350,15 @@ var Edit = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "bg-soft py-4 pl-5 pr-4 position-relative"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Backend_UI_Breadcrumb_Breadcrumb__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        items: [{
+          to: '/admin/customers',
+          content: index
+        }],
         main: edit,
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faMoneyBillWaveAlt"]
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faUserTie"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_UI_Titles_SpecialTitle_SpecialTitle__WEBPACK_IMPORTED_MODULE_9__["default"], {
         user: true,
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faMoneyBillWaveAlt"]
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faUserTie"]
       }, title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_UI_Titles_Subtitle_Subtitle__WEBPACK_IMPORTED_MODULE_10__["default"], {
         user: true
       }, edit)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -358,16 +368,16 @@ var Edit = /*#__PURE__*/function (_Component) {
   }], [{
     key: "getDerivedStateFromProps",
     value: function getDerivedStateFromProps(nextProps, prevState) {
-      if (nextProps.backend.expenses.expense && prevState.description === '') {
-        var expense = nextProps.backend.expenses.expense;
-        return Object(_shared_utility__WEBPACK_IMPORTED_MODULE_18__["updateObject"])(prevState, _objectSpread({}, expense));
+      if (nextProps.backend.customers.customer && prevState.name === '') {
+        var customer = nextProps.backend.customers.customer;
+        return Object(_shared_utility__WEBPACK_IMPORTED_MODULE_18__["updateObject"])(prevState, _objectSpread({}, customer));
       }
 
       return prevState;
     }
   }]);
 
-  return Edit;
+  return Add;
 }(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
 
 var mapStateToProps = function mapStateToProps(state) {
@@ -377,18 +387,18 @@ var mapStateToProps = function mapStateToProps(state) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     get: function get(id) {
-      return dispatch(_store_actions__WEBPACK_IMPORTED_MODULE_17__["getExpense"](id));
+      return dispatch(_store_actions__WEBPACK_IMPORTED_MODULE_17__["getCustomer"](id));
     },
-    patch: function patch(id, data) {
-      return dispatch(_store_actions__WEBPACK_IMPORTED_MODULE_17__["patchExpenses"](id, data));
+    post: function post(data) {
+      return dispatch(_store_actions__WEBPACK_IMPORTED_MODULE_17__["postCustomers"](data));
     },
     reset: function reset() {
-      return dispatch(_store_actions__WEBPACK_IMPORTED_MODULE_17__["resetExpenses"]());
+      return dispatch(_store_actions__WEBPACK_IMPORTED_MODULE_17__["resetCustomers"]());
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Edit)));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Add)));
 
 /***/ })
 

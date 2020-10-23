@@ -27,10 +27,10 @@ export const setLanguage = id => async dispatch => {
     dispatch(contentStart());
 
     try {
-        const lang = localStorage.getItem('lang');
+        const token = localStorage.getItem('token');
         const res = await fetch(`${prefix}content/language/${id}`, {
             headers: {
-                Authorization: lang
+                Authorization: token
             }
         });
         const resData = await res.json();

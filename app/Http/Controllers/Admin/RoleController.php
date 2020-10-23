@@ -79,9 +79,12 @@ class RoleController extends Controller
 
     public function show($id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $role = Role::find($id);
         if (!$role) return response()->json([
-            'message' => UtilController::message('Rôle inexistant.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['roles']['not_found'], 'danger'),
         ]);
 
         $role_features = [];
@@ -108,6 +111,9 @@ class RoleController extends Controller
 
     public function store(Request $request)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $request->validate($this->rules);
 
         $input = $request->only(['name', 'description']);
@@ -128,15 +134,18 @@ class RoleController extends Controller
         $role->features()->sync($features);
 
         return response()->json([
-            'message' => UtilController::message('Rôle créé avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['roles']['created'], 'success'),
         ]);
     }
 
     public function update(Request $request, $id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $role = Role::find($id);
         if (!$role) return response()->json([
-            'message' => UtilController::message('Rôle inexistant.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['roles']['not_found'], 'danger'),
         ]);
 
         $request->validate($this->rules);
@@ -159,16 +168,19 @@ class RoleController extends Controller
         $role->features()->sync($features);
 
         return response()->json([
-            'message' => UtilController::message('Rôle modifié avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['roles']['created'], 'success'),
             'role' => $role,
         ]);
     }
 
     public function destroy($id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $role = Role::find($id);
         if (!$role) return response()->json([
-            'message' => UtilController::message('Rôle inexistant.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['roles']['not_found'], 'danger'),
         ]);
 
         $role->delete();
@@ -179,7 +191,7 @@ class RoleController extends Controller
         $total = $data['total'];
 
         return response()->json([
-            'message' => UtilController::message('Rôle supprimé avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['roles']['deleted'], 'success'),
             'roles' => $roles,
             'total' => $total,
         ]);

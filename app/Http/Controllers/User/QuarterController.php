@@ -83,9 +83,12 @@ class QuarterController extends Controller
 
     public function show($id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $quarter = Quarter::find($id);
         if (!$quarter) return response()->json([
-            'message' => UtilController::message('Quartier inexistant.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['quarters']['not_found'], 'danger'),
         ]);
 
         $cities = [];
@@ -101,6 +104,9 @@ class QuarterController extends Controller
 
     public function store(Request $request)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $request->validate($this->rules);
 
         $input = $request->all();
@@ -108,15 +114,18 @@ class QuarterController extends Controller
         Quarter::create($input);
 
         return response()->json([
-            'message' => UtilController::message('Quartier créé avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['quarters']['created'], 'success'),
         ]);
     }
 
     public function update(Request $request, $id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $quarter = Quarter::find($id);
         if (!$quarter) return response()->json([
-            'message' => UtilController::message('Quartier inexistant.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['quarters']['not_found'], 'danger'),
         ]);
 
         $request->validate($this->rules);
@@ -126,16 +135,19 @@ class QuarterController extends Controller
         $quarter->update($input);
 
         return response()->json([
-            'message' => UtilController::message('Quartier modifié avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['quarters']['updated'], 'success'),
             'quarter' => $quarter,
         ]);
     }
 
     public function destroy($id)
     {
+        $cms = UtilController::cms();
+        $user = UtilController::get(request());
+
         $quarter = Quarter::find($id);
         if (!$quarter) return response()->json([
-            'message' => UtilController::message('Quartier inexistant.', 'danger'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['quarters']['not_found'], 'danger'),
         ]);
 
         $quarter->delete();
@@ -146,7 +158,7 @@ class QuarterController extends Controller
         $total = $data['total'];
 
         return response()->json([
-            'message' => UtilController::message('Quartier supprimé avec succès.', 'success'),
+            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['quarters']['deleted'], 'success'),
             'quarters' => $quarters,
             'total' => $total,
         ]);

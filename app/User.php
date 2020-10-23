@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'photo', 'phone', 'role_id'
+        'name', 'email', 'password', 'photo', 'phone', 'role_id', 'language_id',
     ];
 
     /**
@@ -70,5 +70,10 @@ class User extends Authenticatable
     public function getPhotoAttribute($value)
     {
         return $value ? $this->directory . $value : null;
+    }
+
+    public function language()
+    {
+        return $this->belongsTo('App\Language');
     }
 }

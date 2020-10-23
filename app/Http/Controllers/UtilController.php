@@ -44,6 +44,12 @@ class UtilController extends Controller
         return $user;
     }
 
+    public static function cms()
+    {
+        $jsonString = file_get_contents(base_path('cms.json'));
+        return json_decode($jsonString, true);
+    }
+
 
 
     // Authentication
@@ -64,6 +70,7 @@ class UtilController extends Controller
 
         $data = array_merge($user->toArray(), [
             'notifications' => $user->unreadNotifications()->latest()->limit(5)->get(),
+            'language' => $user->language->abbr
         ]);
         if ($type === 'user') {
             $role = $user->role;
@@ -84,7 +91,7 @@ class UtilController extends Controller
                 'role' => $role
             ];
         } else if ($type === 'admin') $data = array_merge($data, []);
-        return response()->json(['data' => $data, 'role' => $type]);
+        return response()->json(['data' => $data, 'role' => $type,]);
     }
 
 

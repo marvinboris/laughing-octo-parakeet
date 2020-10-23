@@ -18,6 +18,7 @@ const asyncUserCanalSubscriptionsAdd = asyncComponent(() => import('./containers
 
 const asyncUserCmsGlobal = asyncComponent(() => import('./containers/Backend/User/Cms/Global'));
 const asyncUserCmsGeneral = asyncComponent(() => import('./containers/Backend/User/Cms/General'));
+const asyncUserCmsMessages = asyncComponent(() => import('./containers/Backend/User/Cms/Messages'));
 const asyncUserCmsComponents = asyncComponent(() => import('./containers/Backend/User/Cms/Components'));
 const asyncUserCmsAuth = asyncComponent(() => import('./containers/Backend/User/Cms/Auth'));
 const asyncUserCmsBackend = asyncComponent(() => import('./containers/Backend/User/Cms/Backend'));
@@ -71,6 +72,7 @@ const asyncAdminAdminsEdit = asyncComponent(() => import('./containers/Backend/A
 
 const asyncAdminCmsGlobal = asyncComponent(() => import('./containers/Backend/Admin/Cms/Global'));
 const asyncAdminCmsGeneral = asyncComponent(() => import('./containers/Backend/Admin/Cms/General'));
+const asyncAdminCmsMessages = asyncComponent(() => import('./containers/Backend/Admin/Cms/Messages'));
 const asyncAdminCmsComponents = asyncComponent(() => import('./containers/Backend/Admin/Cms/Components'));
 const asyncAdminCmsAuth = asyncComponent(() => import('./containers/Backend/Admin/Cms/Auth'));
 const asyncAdminCmsBackend = asyncComponent(() => import('./containers/Backend/Admin/Cms/Backend'));
@@ -155,6 +157,7 @@ class App extends Component {
 
                     <Route path="/user/cms/global" component={asyncUserCmsGlobal} />
                     <Route path="/user/cms/general" component={asyncUserCmsGeneral} />
+                    <Route path="/user/cms/messages" component={asyncUserCmsMessages} />
                     <Route path="/user/cms/components" component={asyncUserCmsComponents} />
                     <Route path="/user/cms/auth" component={asyncUserCmsAuth} />
                     <Route path="/user/cms/backend" component={asyncUserCmsBackend} />
@@ -207,6 +210,7 @@ class App extends Component {
 
                     <Route path="/admin/cms/global" component={asyncAdminCmsGlobal} />
                     <Route path="/admin/cms/general" component={asyncAdminCmsGeneral} />
+                    <Route path="/admin/cms/messages" component={asyncAdminCmsMessages} />
                     <Route path="/admin/cms/components" component={asyncAdminCmsComponents} />
                     <Route path="/admin/cms/auth" component={asyncAdminCmsAuth} />
                     <Route path="/admin/cms/backend" component={asyncAdminCmsBackend} />

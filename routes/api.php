@@ -140,11 +140,11 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
                 Route::patch('frontend', 'FrontendController@patch')->name('frontend');
                 Route::patch('backend', 'BackendController@patch')->name('backend');
                 Route::patch('auth', 'AuthController@patch')->name('auth');
-    
+
                 Route::name('index')->get('', function () {
                     $jsonString = file_get_contents(base_path('cms.json'));
                     $cms = json_decode($jsonString, true);
-    
+
                     return response()->json([
                         'cms' => $cms,
                         'languages' => Language::all(),
@@ -235,29 +235,37 @@ Route::middleware('auth:admin,api')->group(function () {
         Route::name('csv')->post('csv', 'ExportController@csv');
         Route::name('pdf')->post('pdf', 'ExportController@pdf');
     });
+
+    Route::prefix('content')->name('content.')->group(function () {
+        Route::get('language/{language}', function ($id) {
+            $user = UtilController::get(request());
+
+            $jsonString = file_get_contents(base_path('cms.json'));
+            $cmsFile = json_decode($jsonString, true);
+
+            $language = Language::find($id);
+            if (!$language) return response()->json([
+                'message' => UtilController::message($cmsFile['pages'][$user->language->abbr]['messages']['languages']['not_found'], 'danger')
+            ]);
+
+            $user->update([
+                'language_id' => $id
+            ]);
+
+            $cms = [
+                'global' => $cmsFile['global'],
+                'pages' => $cmsFile['pages'][$language->abbr],
+            ];
+
+            return response()->json([
+                'language' => $language->toArray(),
+                'cms' => $cms,
+            ]);
+        })->name('language');
+    });
 });
 
 Route::prefix('content')->name('content.')->group(function () {
-    Route::get('language/{language}', function ($id) {
-        $language = Language::find($id);
-        if (!$language) return response()->json([
-            'message' => UtilController::message('Langue inexistante.', 'danger')
-        ]);
-
-        $jsonString = file_get_contents(base_path('cms.json'));
-        $cmsFile = json_decode($jsonString, true);
-
-        $cms = [
-            'global' => $cmsFile['global'],
-            'pages' => $cmsFile['pages'][$language->abbr],
-        ];
-
-        return response()->json([
-            'language' => $language->toArray(),
-            'cms' => $cms,
-        ]);
-    })->name('language');
-
     Route::get('{language}', function ($lang) {
         $jsonString = file_get_contents(base_path('cms.json'));
         $cmsFile = json_decode($jsonString, true);

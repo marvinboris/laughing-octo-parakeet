@@ -1,1 +1,1071 @@
-{"global":{"app_name":"CANAL+ Customer Management System","company_name":"Briluce Services","logo":"\/images\/Group 718@2x.png"},"pages":{"en":{"general":{"date":"Date","time":"Time","home":"Home","days":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"months":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]},"components":{"form":{"save":"Save","selected_file":"File selected"},"list":{"action":"Action","all":"All","first":"First","last":"Last","loading":"Loading","print":"Print","pdf":"PDF","csv":"CSV","excel":"Excel","search":"Search","see":"See","show":"Show","sl":"SL","showing":"Showing","from":"from","entries":{"singular":"entry","plural":"entries"}}},"auth":{"footer":{"copyright":"Copyright","all_rights":"All rights reserved by"},"user":{"login":{"dont_be_late":"Don't be late","sign_in":"Sign In","email_address":"E-mail address","password":"Password"}},"admin":{"login":{"sign_in_to":"Sign In to","sign_in":"Sign In","admin_panel":"Admin Panel","email_address":"E-mail address","password":"Password","sms":"SMS","email":"E-mail","otp_method":"OTP Method"},"verify":{"enter":"Enter","verification_code":"Verification code","continue":"Continue","didnt_receive_code":"Didn't receive code","resend":"Resend"}}},"backend":{"header":{"sign_out":"Sign out","no_message":"No message","no_notification":"No notification","logout":"Logout","close":"Close","sure_logout":"Are you sure you want to logout","you_have":"You have","messages":"messages","view_all_messages":"View all messages","notifications":"notifications","view_all_notifications":"View all notifications"},"footer":{"copyright":"Copyright","all_rights":"All rights reserved by"},"sidebar":{"admin":"Administrator","user":"User","menu":{"dashboard":"Dashboard","admins":{"title":"Admins","add":"Add admin","index":"Admin list"},"users":{"title":"Users","add":"Add user","index":"User list"},"roles":{"title":"Roles","add":"Add role","index":"Role list"},"features":{"title":"Features","add":"Add feature","index":"Feature list"},"customers":{"title":"Customers","add":"Add customer","index":"Customer list","categories":{"add":"Add category","index":"Category list"}},"cities":{"title":"Cities","add":"Add city","index":"City list"},"quarters":{"title":"Quarters","add":"Add quarter","index":"Quarter list"},"languages":{"title":"Languages","add":"Add language","index":"Language list"},"methods":{"title":"Methods","add":"Add method","index":"Method list"},"canal":{"title":"Canal+ Services","formulae":"Formula list","subscriptions":{"index":"Subscription management","add":"Renewals"},"case":"Canal+ cash report"},"eneo":{"title":"ENEO Services"},"camwater":{"title":"Camwater Services"},"expenses":{"title":"Expenses","add":"Add expense","index":"Expense list"},"cms":{"title":"CMS","global":"Global","general":"General","components":"Components","auth":"Auth","backend":"Backend","frontend":"Frontend"},"notifications":"Notifications","settings":{"title":"Settings","cms":"CMS","language":"Language settings"}}},"pages":{"dashboard":{"admin":{"title":"Admin panel","subtitle":"Dashboard","blocks":{"subscription":{"title":"Subscription Amount","description":"Amount of services offered"},"total_customers":{"title":"Total Customers","description":"Customers in the system"},"expenses":{"title":"Expenses","description":"All recorded expenses"},"total_cash":{"title":"Total Case","description":"Amount available at checkout"}},"sales_report":"Sales Report"},"user":{"title":"User panel","subtitle":"Dashboard","blocks":{"subscription":{"title":"Subscription Amount","description":"Amount of services offered"},"total_customers":{"title":"Total Customers","description":"Customers in the system"},"expenses":{"title":"Expenses","description":"All recorded expenses"},"total_cash":{"title":"Total Case","description":"Amount available at checkout"}},"sales_report":"Sales Report"}},"admins":{"title":"Administrators","add":"Add admin","edit":"Edit admin","index":"Admin list","form":{"name":"Admin name","full_name":"Full name","phone":"Phone number","password":"Password","password_confirmation":"Confirm password","email":"E-mail address","admin_photo":"Admin photo","photo":"Photo"}},"users":{"title":"Users","add":"Add user","edit":"Edit user","index":"User list","form":{"name":"User name","full_name":"Full name","phone":"Phone number","password":"Password","password_confirmation":"Confirm password","email":"E-mail address","role":"Role","select_role":"Select role","user_photo":"User photo","photo":"Photo"}},"roles":{"title":"Roles","add":"Add role","edit":"Edit role","index":"Role list","form":{"name":"Name","description":"Description","features":"Features","created_at":"Created at","create":"Create","update":"Update","delete":"Delete"}},"features":{"title":"Features","add":"Add feature","edit":"Edit feature","index":"Feature list","form":{"name":"Name","prefix":"Prefix","created_at":"Created at"}},"customers":{"title":"Customers","add":"Add customer","edit":"Edit customer","index":"Customer list","form":{"name":"Customer name","phone":"Phone number","city":"City","select_city":"Select city","quarter":"Quarter","select_quarter":"Select quarter","nid_canal":"Canal+ ID number","nid_eneo":"ENEO ID number","nid_camwater":"Camwater ID number","customer_photo":"Customer photo","photo":"Photo"}},"cities":{"title":"Cities","add":"Add city","edit":"Edit city","index":"City list","form":{"name":"Name","created_at":"Created at"}},"quarters":{"title":"Quarters","add":"Add quarter","edit":"Edit quarter","index":"Quarter list","form":{"name":"Name","city":"City","select_city":"Select city","created_at":"Created at"}},"languages":{"title":"Languages","add":"Add language","edit":"Edit language","index":"Language list","form":{"name":"Name","abbr":"Abbreviation","flag":"Flag","select_flag":"Select flag","created_at":"Created at"}},"methods":{"title":"Payment methods","add":"Add method","edit":"Edit method","index":"Method list","form":{"name":"Name","created_at":"Created at"}},"expenses":{"title":"Expenses","add":"Add expense","edit":"Edit expense","index":"Expense list","form":{"expendable_type":"Expense type","select_expendable_type":"Select expense type","method":"Method","select_method":"Select method","date":"Date","amount":"Amount","description":"Description","user":"User","proof":"Proof"}},"cms":{"title":"CMS","global":"Global","general":"General","frontend":"Frontend","components":"Components","backend":"Backend","auth":"Auth","form":{"logo":"Logo","app_name":"App name","company_name":"Company name"}},"settings":{"title":"Settings","language":{"title":"Language settings","form":{"select_language":"Select a language"}}}}}},"fr":{"general":{"date":"Date","time":"Heure","home":"Accueil","days":["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"],"months":["Jan","F\u00e9v","Mar","Avr","Mai","Jui","Jul","Aou","Sep","Oct","Nov","D\u00e9c"]},"components":{"form":{"save":"Sauvegarder","selected_file":"Fichier s\u00e9lectionn\u00e9"},"list":{"action":"Action","all":"Toutes","first":"Premi\u00e8re","last":"Derni\u00e8re","loading":"En cours","print":"Imprimer","pdf":"PDF","csv":"CSV","excel":"Excel","search":"Rechercher","see":"Voir","show":"Afficher","sl":"SL","showing":"Affichage de","from":"sur","entries":{"singular":"entr\u00e9e","plural":"entr\u00e9es"}}},"auth":{"footer":{"copyright":"Copyright","all_rights":"Tous droits r\u00e9serv\u00e9s par"},"user":{"login":{"dont_be_late":"Ne soyez pas en retard","sign_in":"Se connecter","email_address":"Adresse mail","password":"Mot de passe"}},"admin":{"login":{"sign_in_to":"Se connecter au","sign_in":"Se connecter","admin_panel":"Panneau de l'administrateur","email_address":"Adresse mail","password":"Mot de passe","sms":"SMS","email":"E-mail","otp_method":"M\u00e9thode OTP"},"verify":{"enter":"Entrer le","verification_code":"Code de v\u00e9rification","continue":"Continuer","didnt_receive_code":"Vous ne recevez pas de code","resend":"Renvoyer"}}},"backend":{"header":{"sign_out":"D\u00e9connexion","no_message":"Pas de message","no_notification":"Pas de notification","logout":"D\u00e9connexion","close":"Fermer","sure_logout":"\u00cates-vous s\u00fbr de vouloir vous d\u00e9connecter","you_have":"Vous avez","messages":"messages","view_all_messages":"Tous les messages","notifications":"notifications","view_all_notifications":"Toutes les notifications"},"footer":{"copyright":"Copyright","all_rights":"Tous droits r\u00e9serv\u00e9s par"},"sidebar":{"admin":"Administrateur","user":"Utilisateur","menu":{"dashboard":"Tableau de bord","admins":{"title":"Administrateurs","add":"Ajouter un administrateur","index":"Liste des administrateurs"},"users":{"title":"Utilisateurs","add":"Ajouter un utilisateur","index":"Liste des utilisateurs"},"roles":{"title":"R\u00f4les","add":"Ajouter un r\u00f4le","index":"Liste des r\u00f4les"},"features":{"title":"Fonctionnalit\u00e9s","add":"Ajouter une fonctionnalit\u00e9","index":"Liste des fonctionnalit\u00e9s"},"customers":{"title":"Clients","add":"Ajouter un client","index":"Liste des clients","categories":{"add":"Ajouter une cat\u00e9gorie","index":"Liste des cat\u00e9gories"}},"cities":{"title":"Villes","add":"Ajouter une ville","index":"Liste des villes"},"quarters":{"title":"Quartiers","add":"Ajouter un quartier","index":"Liste des quartiers"},"languages":{"title":"Langues","add":"Ajouter une langue","index":"Liste des langues"},"methods":{"title":"M\u00e9thodes","add":"Ajouter une m\u00e9thode","index":"Liste des m\u00e9thodes"},"canal":{"title":"Services Canal+","formulae":"Liste des formules","subscriptions":{"index":"Gestion Abonnements","add":"Reabonnements"},"case":"Rapport caisse Canal+"},"eneo":{"title":"Services ENEO"},"camwater":{"title":"Services Camwater"},"expenses":{"title":"D\u00e9penses","add":"Ajouter une d\u00e9pense","index":"Liste des d\u00e9penses"},"cms":{"title":"CMS","global":"Global","general":"G\u00e9n\u00e9ral","components":"Composants","auth":"Auth","backend":"Backend","frontend":"Frontend"},"notifications":"Notifications","settings":{"title":"R\u00e9glages","cms":"CMS","language":"Param\u00e8tres de langue"}}},"pages":{"dashboard":{"admin":{"title":"Panneau de l'administrateur","subtitle":"Tableau de bord","blocks":{"subscription":{"title":"Montant Abonnements","description":"Montant des services offerts"},"total_customers":{"title":"Clients Total","description":"Clients dans le syst\u00e8me"},"expenses":{"title":"D\u00e9penses","description":"Toutes les d\u00e9penses enregistr\u00e9es"},"total_cash":{"title":"Caisse Totale","description":"Montant disponible en caisse"}},"sales_report":"Rapport Ventes"},"user":{"title":"Panneau de l'utilisateur","subtitle":"Tableau de bord","blocks":{"subscription":{"title":"Montant Abonnements","description":"Montant des services offerts"},"total_customers":{"title":"Clients Total","description":"Clients dans le syst\u00e8me"},"expenses":{"title":"D\u00e9penses","description":"Toutes les d\u00e9penses enregistr\u00e9es"},"total_cash":{"title":"Caisse Totale","description":"Montant disponible en caisse"}},"sales_report":"Rapport Ventes"}},"admins":{"title":"Administrateurs","add":"Ajouter un administrateur","edit":"Modifier un administrateur","index":"Liste des administrateurs","form":{"name":"Nom de l'administrateur","full_name":"Nom complet","phone":"Num\u00e9ro de t\u00e9l\u00e9phone","password":"Mot de passe","password_confirmation":"Confirmation de mot de passe","email":"Adresse mail","admin_photo":"Photo de l'administrateur","photo":"Photo"}},"users":{"title":"Utilisateurs","add":"Ajouter un utilisateur","edit":"Modifier un utilisateur","index":"Liste des utilisateurs","form":{"name":"Nom d'utilisateur","full_name":"Nom complet","phone":"Num\u00e9ro de t\u00e9l\u00e9phone","password":"Mot de passe","password_confirmation":"Confirmation de mot de passe","email":"Adresse mail","role":"R\u00f4le","select_role":"S\u00e9lectionner un r\u00f4le","user_photo":"Photo de l'utilisateur","photo":"Photo"}},"roles":{"title":"R\u00f4les","add":"Ajouter un r\u00f4le","edit":"Modifier un r\u00f4le","index":"Liste des r\u00f4les","form":{"name":"Nom","description":"Description","features":"Fonctionnalit\u00e9s","created_at":"Cr\u00e9\u00e9 le","create":"Cr\u00e9er","update":"Modifier","delete":"Supprimer"}},"features":{"title":"Fonctionnalit\u00e9s","add":"Ajouter une fonctionnalit\u00e9","edit":"Modifier une fonctionnalit\u00e9","index":"Liste des fonctionnalit\u00e9s","form":{"name":"Nom","prefix":"Pr\u00e9fixe","created_at":"Cr\u00e9\u00e9e le"}},"customers":{"title":"Clients","add":"Ajouter un client","edit":"Modifier un client","index":"Liste des clients","form":{"name":"Nom du client","phone":"Num\u00e9ro de t\u00e9l\u00e9phone","city":"Ville","select_city":"S\u00e9lectionner une ville","quarter":"Quartier","select_quarter":"S\u00e9lectionner un quartier","nid_canal":"Num\u00e9ro d'identification Canal+","nid_eneo":"Num\u00e9ro d'identification ENEO","nid_camwater":"Num\u00e9ro d'identification Camwater","customer_photo":"Photo du client","photo":"Photo"}},"cities":{"title":"Villes","add":"Ajouter une ville","edit":"Modifier une ville","index":"Liste des villes","form":{"name":"Nom","created_at":"Cr\u00e9\u00e9e le"}},"quarters":{"title":"Quartiers","add":"Ajouter un quartier","edit":"Modifier un quartier","index":"Liste des quartiers","form":{"name":"Nom","city":"Ville","select_city":"S\u00e9lectionner une ville","created_at":"Cr\u00e9\u00e9 le"}},"languages":{"title":"Langues","add":"Ajouter une langue","edit":"Modifier une langue","index":"Liste des langues","form":{"name":"Nom","abbr":"Abr\u00e9viation","flag":"Drapeau","select_flag":"S\u00e9lectionner un drapeau","created_at":"Cr\u00e9\u00e9e le"}},"methods":{"title":"M\u00e9thodes de paiement","add":"Ajouter une m\u00e9thode","edit":"Modifier une m\u00e9thode","index":"Liste des m\u00e9thodes","form":{"name":"Nom","created_at":"Cr\u00e9\u00e9e le"}},"expenses":{"title":"D\u00e9penses","add":"Ajouter une d\u00e9pense","edit":"Modifier une d\u00e9pense","index":"Liste des d\u00e9penses","form":{"expendable_type":"Cat\u00e9gorie","select_expendable_type":"S\u00e9lectionner un type de d\u00e9pense","method":"M\u00e9thode","select_method":"S\u00e9lectionner une m\u00e9thode","date":"Date","amount":"Montant","description":"Description","user":"Responsable","proof":"Preuve"}},"cms":{"title":"CMS","global":"Global","general":"G\u00e9n\u00e9ral","frontend":"Frontend","components":"Composants","backend":"Backend","auth":"Auth","form":{"logo":"Logo","app_name":"Nom de l'application","company_name":"Nom de l'entreprise"}},"settings":{"title":"R\u00e9glages","language":{"title":"Param\u00e8tres de langue","form":{"select_language":"S\u00e9lectionner une langue"}}}}}}}}
+{
+    "global": {
+        "app_name": "CANAL+ Customer Management System",
+        "company_name": "Briluce Services",
+        "logo": "\/images\/Group 718@2x.png"
+    },
+    "pages": {
+        "en": {
+            "general": {
+                "date": "Date",
+                "time": "Time",
+                "home": "Home",
+                "days": [
+                    "Sunday",
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday"
+                ],
+                "months": [
+                    "Jan",
+                    "Feb",
+                    "Mar",
+                    "Apr",
+                    "May",
+                    "Jun",
+                    "Jul",
+                    "Aug",
+                    "Sep",
+                    "Oct",
+                    "Nov",
+                    "Dec"
+                ]
+            },
+            "components": {
+                "form": {
+                    "save": "Save",
+                    "selected_file": "File selected"
+                },
+                "list": {
+                    "action": "Action",
+                    "all": "All",
+                    "first": "First",
+                    "last": "Last",
+                    "loading": "Loading",
+                    "print": "Print",
+                    "pdf": "PDF",
+                    "csv": "CSV",
+                    "excel": "Excel",
+                    "search": "Search",
+                    "see": "See",
+                    "show": "Show",
+                    "sl": "SL",
+                    "showing": "Showing",
+                    "from": "from",
+                    "entries": {
+                        "singular": "entry",
+                        "plural": "entries"
+                    }
+                }
+            },
+            "auth": {
+                "footer": {
+                    "copyright": "Copyright",
+                    "all_rights": "All rights reserved by"
+                },
+                "user": {
+                    "login": {
+                        "dont_be_late": "Don't be late",
+                        "sign_in": "Sign In",
+                        "email_address": "E-mail address",
+                        "password": "Password"
+                    }
+                },
+                "admin": {
+                    "login": {
+                        "sign_in_to": "Sign In to",
+                        "sign_in": "Sign In",
+                        "admin_panel": "Admin Panel",
+                        "email_address": "E-mail address",
+                        "password": "Password",
+                        "sms": "SMS",
+                        "email": "E-mail",
+                        "otp_method": "OTP Method"
+                    },
+                    "verify": {
+                        "enter": "Enter",
+                        "verification_code": "Verification code",
+                        "continue": "Continue",
+                        "didnt_receive_code": "Didn't receive code",
+                        "resend": "Resend"
+                    }
+                }
+            },
+            "messages": {
+                "auth": {
+                    "admin": {
+                        "not_found": "These credentials do not match our records.",
+                        "invalid": "Verification code is invalid.",
+                        "sent": "Verification code successfully sent."
+                    },
+                    "user": {
+                        "inactive": "Your account is not active. Please, contact the administrator.",
+                        "unauthorized": "Unauthorized",
+                        "sent": "Reset password link successfully sent.",
+                        "reset": "Your password has been successfully reset.",
+                        "failure": "Failure."
+                    }
+                },
+                "admins": {
+                    "not_found": "Admin not found.",
+                    "created": "Admin successfully created.",
+                    "updated": "Admin successfully updated.",
+                    "deleted": "Admin successfully deleted."
+                },
+                "users": {
+                    "not_found": "User not found.",
+                    "created": "User successfully created.",
+                    "updated": "User successfully updated.",
+                    "deleted": "User successfully deleted."
+                },
+                "roles": {
+                    "not_found": "Role not found.",
+                    "created": "Role successfully created.",
+                    "updated": "Role successfully updated.",
+                    "deleted": "Role successfully deleted."
+                },
+                "features": {
+                    "not_found": "Feature not found.",
+                    "created": "Feature successfully created.",
+                    "updated": "Feature successfully updated.",
+                    "deleted": "Feature successfully deleted."
+                },
+                "customers": {
+                    "not_found": "Customer not found.",
+                    "created": "Customer successfully created.",
+                    "updated": "Customer successfully updated.",
+                    "deleted": "Customer successfully deleted."
+                },
+                "cities": {
+                    "not_found": "City not found.",
+                    "created": "City successfully created.",
+                    "updated": "City successfully updated.",
+                    "deleted": "City successfully deleted."
+                },
+                "quarters": {
+                    "not_found": "Quarter not found.",
+                    "created": "Quarter successfully created.",
+                    "updated": "Quarter successfully updated.",
+                    "deleted": "Quarter successfully deleted."
+                },
+                "languages": {
+                    "not_found": "Language not found.",
+                    "created": "Language successfully created.",
+                    "updated": "Language successfully updated.",
+                    "deleted": "Language successfully deleted."
+                },
+                "methods": {
+                    "not_found": "Method not found.",
+                    "created": "Method successfully created.",
+                    "updated": "Method successfully updated.",
+                    "deleted": "Method successfully deleted."
+                },
+                "canal": {
+                    "formulae": {
+                        "not_found": "Formula not found.",
+                        "created": "Formula successfully created.",
+                        "updated": "Formula successfully updated.",
+                        "deleted": "Formula successfully deleted."
+                    },
+                    "subscriptions": {
+                        "not_found": "Subscription not found.",
+                        "created": "Subscription successfully created.",
+                        "updated": "Subscription successfully updated.",
+                        "deleted": "Subscription successfully deleted."
+                    }
+                },
+                "eneo": {
+                    "not_found": "ENEO not found.",
+                    "created": "ENEO successfully created.",
+                    "updated": "ENEO successfully updated.",
+                    "deleted": "ENEO successfully deleted."
+                },
+                "camwater": {
+                    "not_found": "Camwater not found.",
+                    "created": "Camwater successfully created.",
+                    "updated": "Camwater successfully updated.",
+                    "deleted": "Camwater successfully deleted."
+                },
+                "expenses": {
+                    "not_found": "Expense not found.",
+                    "created": "Expense successfully created.",
+                    "updated": "Expense successfully updated.",
+                    "deleted": "Expense successfully deleted."
+                },
+                "notifications": {
+                    "not_found": "Notification not found."
+                },
+                "cms": {
+                    "not_found": "Content not found.",
+                    "updated": "Content successfully updated."
+                },
+                "settings": {
+                    "not_found": "Setting not found.",
+                    "created": "Setting successfully created.",
+                    "updated": "Setting successfully updated.",
+                    "deleted": "Setting successfully deleted."
+                }
+            },
+            "backend": {
+                "header": {
+                    "sign_out": "Sign out",
+                    "no_message": "No message",
+                    "no_notification": "No notification",
+                    "logout": "Logout",
+                    "close": "Close",
+                    "sure_logout": "Are you sure you want to logout",
+                    "you_have": "You have",
+                    "messages": "messages",
+                    "view_all_messages": "View all messages",
+                    "notifications": "notifications",
+                    "view_all_notifications": "View all notifications"
+                },
+                "footer": {
+                    "copyright": "Copyright",
+                    "all_rights": "All rights reserved by"
+                },
+                "sidebar": {
+                    "admin": "Administrator",
+                    "user": "User",
+                    "menu": {
+                        "dashboard": "Dashboard",
+                        "admins": {
+                            "title": "Admins",
+                            "add": "Add admin",
+                            "index": "Admin list"
+                        },
+                        "users": {
+                            "title": "Users",
+                            "add": "Add user",
+                            "index": "User list"
+                        },
+                        "roles": {
+                            "title": "Roles",
+                            "add": "Add role",
+                            "index": "Role list"
+                        },
+                        "features": {
+                            "title": "Features",
+                            "add": "Add feature",
+                            "index": "Feature list"
+                        },
+                        "customers": {
+                            "title": "Customers",
+                            "add": "Add customer",
+                            "index": "Customer list",
+                            "categories": {
+                                "add": "Add category",
+                                "index": "Category list"
+                            }
+                        },
+                        "cities": {
+                            "title": "Cities",
+                            "add": "Add city",
+                            "index": "City list"
+                        },
+                        "quarters": {
+                            "title": "Quarters",
+                            "add": "Add quarter",
+                            "index": "Quarter list"
+                        },
+                        "languages": {
+                            "title": "Languages",
+                            "add": "Add language",
+                            "index": "Language list"
+                        },
+                        "methods": {
+                            "title": "Methods",
+                            "add": "Add method",
+                            "index": "Method list"
+                        },
+                        "canal": {
+                            "title": "Canal+ Services",
+                            "formulae": "Formula list",
+                            "subscriptions": {
+                                "index": "Subscription management",
+                                "add": "Renewals"
+                            },
+                            "case": "Canal+ cash report"
+                        },
+                        "eneo": {
+                            "title": "ENEO Services"
+                        },
+                        "camwater": {
+                            "title": "Camwater Services"
+                        },
+                        "expenses": {
+                            "title": "Expenses",
+                            "add": "Add expense",
+                            "index": "Expense list"
+                        },
+                        "cms": {
+                            "title": "CMS",
+                            "global": "Global",
+                            "general": "General",
+                            "components": "Components",
+                            "auth": "Auth",
+                            "messages": "Messages",
+                            "backend": "Backend",
+                            "frontend": "Frontend"
+                        },
+                        "notifications": "Notifications",
+                        "settings": {
+                            "title": "Settings",
+                            "cms": "CMS",
+                            "language": "Language settings"
+                        }
+                    }
+                },
+                "pages": {
+                    "dashboard": {
+                        "admin": {
+                            "title": "Admin panel",
+                            "subtitle": "Dashboard",
+                            "blocks": {
+                                "subscription": {
+                                    "title": "Subscription Amount",
+                                    "description": "Amount of services offered"
+                                },
+                                "total_customers": {
+                                    "title": "Total Customers",
+                                    "description": "Customers in the system"
+                                },
+                                "expenses": {
+                                    "title": "Expenses",
+                                    "description": "All recorded expenses"
+                                },
+                                "total_cash": {
+                                    "title": "Total Case",
+                                    "description": "Amount available at checkout"
+                                }
+                            },
+                            "sales_report": "Sales Report"
+                        },
+                        "user": {
+                            "title": "User panel",
+                            "subtitle": "Dashboard",
+                            "blocks": {
+                                "subscription": {
+                                    "title": "Subscription Amount",
+                                    "description": "Amount of services offered"
+                                },
+                                "total_customers": {
+                                    "title": "Total Customers",
+                                    "description": "Customers in the system"
+                                },
+                                "expenses": {
+                                    "title": "Expenses",
+                                    "description": "All recorded expenses"
+                                },
+                                "total_cash": {
+                                    "title": "Total Case",
+                                    "description": "Amount available at checkout"
+                                }
+                            },
+                            "sales_report": "Sales Report"
+                        }
+                    },
+                    "admins": {
+                        "title": "Administrators",
+                        "add": "Add admin",
+                        "edit": "Edit admin",
+                        "index": "Admin list",
+                        "form": {
+                            "name": "Admin name",
+                            "full_name": "Full name",
+                            "phone": "Phone number",
+                            "password": "Password",
+                            "password_confirmation": "Confirm password",
+                            "email": "E-mail address",
+                            "admin_photo": "Admin photo",
+                            "photo": "Photo"
+                        }
+                    },
+                    "users": {
+                        "title": "Users",
+                        "add": "Add user",
+                        "edit": "Edit user",
+                        "index": "User list",
+                        "form": {
+                            "name": "User name",
+                            "full_name": "Full name",
+                            "phone": "Phone number",
+                            "password": "Password",
+                            "password_confirmation": "Confirm password",
+                            "email": "E-mail address",
+                            "role": "Role",
+                            "select_role": "Select role",
+                            "user_photo": "User photo",
+                            "photo": "Photo"
+                        }
+                    },
+                    "roles": {
+                        "title": "Roles",
+                        "add": "Add role",
+                        "edit": "Edit role",
+                        "index": "Role list",
+                        "form": {
+                            "name": "Name",
+                            "description": "Description",
+                            "features": "Features",
+                            "created_at": "Created at",
+                            "create": "Create",
+                            "update": "Update",
+                            "delete": "Delete"
+                        }
+                    },
+                    "features": {
+                        "title": "Features",
+                        "add": "Add feature",
+                        "edit": "Edit feature",
+                        "index": "Feature list",
+                        "form": {
+                            "name": "Name",
+                            "prefix": "Prefix",
+                            "created_at": "Created at"
+                        }
+                    },
+                    "customers": {
+                        "title": "Customers",
+                        "add": "Add customer",
+                        "edit": "Edit customer",
+                        "index": "Customer list",
+                        "form": {
+                            "name": "Customer name",
+                            "phone": "Phone number",
+                            "city": "City",
+                            "select_city": "Select city",
+                            "quarter": "Quarter",
+                            "select_quarter": "Select quarter",
+                            "nid_canal": "Canal+ ID number",
+                            "nid_eneo": "ENEO ID number",
+                            "nid_camwater": "Camwater ID number",
+                            "customer_photo": "Customer photo",
+                            "photo": "Photo"
+                        }
+                    },
+                    "cities": {
+                        "title": "Cities",
+                        "add": "Add city",
+                        "edit": "Edit city",
+                        "index": "City list",
+                        "form": {
+                            "name": "Name",
+                            "created_at": "Created at"
+                        }
+                    },
+                    "quarters": {
+                        "title": "Quarters",
+                        "add": "Add quarter",
+                        "edit": "Edit quarter",
+                        "index": "Quarter list",
+                        "form": {
+                            "name": "Name",
+                            "city": "City",
+                            "select_city": "Select city",
+                            "created_at": "Created at"
+                        }
+                    },
+                    "languages": {
+                        "title": "Languages",
+                        "add": "Add language",
+                        "edit": "Edit language",
+                        "index": "Language list",
+                        "form": {
+                            "name": "Name",
+                            "abbr": "Abbreviation",
+                            "flag": "Flag",
+                            "select_flag": "Select flag",
+                            "created_at": "Created at"
+                        }
+                    },
+                    "methods": {
+                        "title": "Payment methods",
+                        "add": "Add method",
+                        "edit": "Edit method",
+                        "index": "Method list",
+                        "form": {
+                            "name": "Name",
+                            "created_at": "Created at"
+                        }
+                    },
+                    "expenses": {
+                        "title": "Expenses",
+                        "add": "Add expense",
+                        "edit": "Edit expense",
+                        "index": "Expense list",
+                        "form": {
+                            "expendable_type": "Expense type",
+                            "select_expendable_type": "Select expense type",
+                            "method": "Method",
+                            "select_method": "Select method",
+                            "date": "Date",
+                            "amount": "Amount",
+                            "description": "Description",
+                            "user": "User",
+                            "proof": "Proof"
+                        }
+                    },
+                    "cms": {
+                        "title": "CMS",
+                        "global": "Global",
+                        "general": "General",
+                        "messages": "Messages",
+                        "frontend": "Frontend",
+                        "components": "Components",
+                        "backend": "Backend",
+                        "auth": "Auth",
+                        "form": {
+                            "logo": "Logo",
+                            "app_name": "App name",
+                            "company_name": "Company name"
+                        }
+                    },
+                    "settings": {
+                        "title": "Settings",
+                        "language": {
+                            "title": "Language settings",
+                            "form": {
+                                "select_language": "Select a language"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "fr": {
+            "general": {
+                "date": "Date",
+                "time": "Heure",
+                "home": "Accueil",
+                "days": [
+                    "Dimanche",
+                    "Lundi",
+                    "Mardi",
+                    "Mercredi",
+                    "Jeudi",
+                    "Vendredi",
+                    "Samedi"
+                ],
+                "months": [
+                    "Jan",
+                    "F\u00e9v",
+                    "Mar",
+                    "Avr",
+                    "Mai",
+                    "Jui",
+                    "Jul",
+                    "Aou",
+                    "Sep",
+                    "Oct",
+                    "Nov",
+                    "D\u00e9c"
+                ]
+            },
+            "components": {
+                "form": {
+                    "save": "Sauvegarder",
+                    "selected_file": "Fichier s\u00e9lectionn\u00e9"
+                },
+                "list": {
+                    "action": "Action",
+                    "all": "Toutes",
+                    "first": "Premi\u00e8re",
+                    "last": "Derni\u00e8re",
+                    "loading": "En cours",
+                    "print": "Imprimer",
+                    "pdf": "PDF",
+                    "csv": "CSV",
+                    "excel": "Excel",
+                    "search": "Rechercher",
+                    "see": "Voir",
+                    "show": "Afficher",
+                    "sl": "SL",
+                    "showing": "Affichage de",
+                    "from": "sur",
+                    "entries": {
+                        "singular": "entr\u00e9e",
+                        "plural": "entr\u00e9es"
+                    }
+                }
+            },
+            "auth": {
+                "footer": {
+                    "copyright": "Copyright",
+                    "all_rights": "Tous droits r\u00e9serv\u00e9s par"
+                },
+                "user": {
+                    "login": {
+                        "dont_be_late": "Ne soyez pas en retard",
+                        "sign_in": "Se connecter",
+                        "email_address": "Adresse mail",
+                        "password": "Mot de passe"
+                    }
+                },
+                "admin": {
+                    "login": {
+                        "sign_in_to": "Se connecter au",
+                        "sign_in": "Se connecter",
+                        "admin_panel": "Panneau de l'administrateur",
+                        "email_address": "Adresse mail",
+                        "password": "Mot de passe",
+                        "sms": "SMS",
+                        "email": "E-mail",
+                        "otp_method": "M\u00e9thode OTP"
+                    },
+                    "verify": {
+                        "enter": "Entrer le",
+                        "verification_code": "Code de v\u00e9rification",
+                        "continue": "Continuer",
+                        "didnt_receive_code": "Vous ne recevez pas de code",
+                        "resend": "Renvoyer"
+                    }
+                }
+            },
+            "messages": {
+                "auth": {
+                    "admin": {
+                        "not_found": "Ces informations d'identification ne correspondent pas à nos enregistrements.",
+                        "invalid": "Le code de vérification n'est pas valide.",
+                        "sent": "Code de vérification envoyé avec succès."
+                    },
+                    "user": {
+                        "inactive": "Votre compte n'est pas actif. Veuillez contacter l'administrateur.",
+                        "unauthorized": "Non autorisé.",
+                        "sent": "Le lien de réinitialisation du mot de passe a bien été envoyé.",
+                        "reset": "Votre mot de passe a été réinitialisé avec succès.",
+                        "failure": "Échec."
+                    }
+                },
+                "admins": {
+                    "not_found": "Administrateur inexistant.",
+                    "created": "Administrateur créé avec succès.",
+                    "updated": "Administrateur modifié avec succès.",
+                    "deleted": "Administrateur supprimé avec succès."
+                },
+                "users": {
+                    "not_found": "Utilisateur inexistant.",
+                    "created": "Utilisateur créé avec succès.",
+                    "updated": "Utilisateur modifié avec succès.",
+                    "deleted": "Utilisateur supprimé avec succès."
+                },
+                "roles": {
+                    "not_found": "Rôle inexistant.",
+                    "created": "Rôle créé avec succès.",
+                    "updated": "Rôle modifié avec succès.",
+                    "deleted": "Rôle supprimé avec succès."
+                },
+                "features": {
+                    "not_found": "Fonctionnalité inexistante.",
+                    "created": "Fonctionnalité créée avec succès.",
+                    "updated": "Fonctionnalité modifiée avec succès.",
+                    "deleted": "Fonctionnalité supprimée avec succès."
+                },
+                "customers": {
+                    "not_found": "Client inexistant.",
+                    "created": "Client créé avec succès.",
+                    "updated": "Client modifié avec succès.",
+                    "deleted": "Client supprimé avec succès."
+                },
+                "cities": {
+                    "not_found": "Ville inexistante.",
+                    "created": "Ville créée avec succès.",
+                    "updated": "Ville modifiée avec succès.",
+                    "deleted": "Ville supprimée avec succès."
+                },
+                "quarters": {
+                    "not_found": "Quartier inexistant.",
+                    "created": "Quartier créé avec succès.",
+                    "updated": "Quartier modifié avec succès.",
+                    "deleted": "Quartier supprimé avec succès."
+                },
+                "languages": {
+                    "not_found": "Langue inexistante.",
+                    "created": "Langue créée avec succès.",
+                    "updated": "Langue modifiée avec succès.",
+                    "deleted": "Langue supprimée avec succès."
+                },
+                "methods": {
+                    "not_found": "Méthode inexistante.",
+                    "created": "Méthode créée avec succès.",
+                    "updated": "Méthode modifiée avec succès.",
+                    "deleted": "Méthode supprimée avec succès."
+                },
+                "canal": {
+                    "formulae": {
+                        "not_found": "Formule inexistante.",
+                        "created": "Formule créée avec succès.",
+                        "updated": "Formule modifiée avec succès.",
+                        "deleted": "Formule supprimée avec succès."
+                    },
+                    "subscriptions": {
+                        "not_found": "Souscription inexistante.",
+                        "created": "Souscription créée avec succès.",
+                        "updated": "Souscription modifiée avec succès.",
+                        "deleted": "Souscription supprimée avec succès."
+                    }
+                },
+                "eneo": {
+                    "not_found": "ENEO inexistant.",
+                    "created": "ENEO créé avec succès.",
+                    "updated": "ENEO modifié avec succès.",
+                    "deleted": "ENEO supprimé avec succès."
+                },
+                "camwater": {
+                    "not_found": "Camwater inexistant.",
+                    "created": "Camwater créé avec succès.",
+                    "updated": "Camwater modifié avec succès.",
+                    "deleted": "Camwater supprimé avec succès."
+                },
+                "expenses": {
+                    "not_found": "Dépense inexistante.",
+                    "created": "Dépense créée avec succès.",
+                    "updated": "Dépense modifiée avec succès.",
+                    "deleted": "Dépense supprimée avec succès."
+                },
+                "notifications": {
+                    "not_found": "Notification inexistante."
+                },
+                "cms": {
+                    "not_found": "Contenu inexistant.",
+                    "updated": "Contenu modifié avec succès."
+                },
+                "settings": {
+                    "not_found": "Paramètre inexistant.",
+                    "created": "Paramètre créé avec succès.",
+                    "updated": "Paramètre modifié avec succès.",
+                    "deleted": "Paramètre supprimé avec succès."
+                }
+            },
+            "backend": {
+                "header": {
+                    "sign_out": "D\u00e9connexion",
+                    "no_message": "Pas de message",
+                    "no_notification": "Pas de notification",
+                    "logout": "D\u00e9connexion",
+                    "close": "Fermer",
+                    "sure_logout": "\u00cates-vous s\u00fbr de vouloir vous d\u00e9connecter",
+                    "you_have": "Vous avez",
+                    "messages": "messages",
+                    "view_all_messages": "Tous les messages",
+                    "notifications": "notifications",
+                    "view_all_notifications": "Toutes les notifications"
+                },
+                "footer": {
+                    "copyright": "Copyright",
+                    "all_rights": "Tous droits r\u00e9serv\u00e9s par"
+                },
+                "sidebar": {
+                    "admin": "Administrateur",
+                    "user": "Utilisateur",
+                    "menu": {
+                        "dashboard": "Tableau de bord",
+                        "admins": {
+                            "title": "Administrateurs",
+                            "add": "Ajouter un administrateur",
+                            "index": "Liste des administrateurs"
+                        },
+                        "users": {
+                            "title": "Utilisateurs",
+                            "add": "Ajouter un utilisateur",
+                            "index": "Liste des utilisateurs"
+                        },
+                        "roles": {
+                            "title": "R\u00f4les",
+                            "add": "Ajouter un r\u00f4le",
+                            "index": "Liste des r\u00f4les"
+                        },
+                        "features": {
+                            "title": "Fonctionnalit\u00e9s",
+                            "add": "Ajouter une fonctionnalit\u00e9",
+                            "index": "Liste des fonctionnalit\u00e9s"
+                        },
+                        "customers": {
+                            "title": "Clients",
+                            "add": "Ajouter un client",
+                            "index": "Liste des clients",
+                            "categories": {
+                                "add": "Ajouter une cat\u00e9gorie",
+                                "index": "Liste des cat\u00e9gories"
+                            }
+                        },
+                        "cities": {
+                            "title": "Villes",
+                            "add": "Ajouter une ville",
+                            "index": "Liste des villes"
+                        },
+                        "quarters": {
+                            "title": "Quartiers",
+                            "add": "Ajouter un quartier",
+                            "index": "Liste des quartiers"
+                        },
+                        "languages": {
+                            "title": "Langues",
+                            "add": "Ajouter une langue",
+                            "index": "Liste des langues"
+                        },
+                        "methods": {
+                            "title": "M\u00e9thodes",
+                            "add": "Ajouter une m\u00e9thode",
+                            "index": "Liste des m\u00e9thodes"
+                        },
+                        "canal": {
+                            "title": "Services Canal+",
+                            "formulae": "Liste des formules",
+                            "subscriptions": {
+                                "index": "Gestion Abonnements",
+                                "add": "Reabonnements"
+                            },
+                            "case": "Rapport caisse Canal+"
+                        },
+                        "eneo": {
+                            "title": "Services ENEO"
+                        },
+                        "camwater": {
+                            "title": "Services Camwater"
+                        },
+                        "expenses": {
+                            "title": "D\u00e9penses",
+                            "add": "Ajouter une d\u00e9pense",
+                            "index": "Liste des d\u00e9penses"
+                        },
+                        "cms": {
+                            "title": "CMS",
+                            "global": "Global",
+                            "general": "G\u00e9n\u00e9ral",
+                            "components": "Composants",
+                            "auth": "Auth",
+                            "messages": "Messages",
+                            "backend": "Backend",
+                            "frontend": "Frontend"
+                        },
+                        "notifications": "Notifications",
+                        "settings": {
+                            "title": "R\u00e9glages",
+                            "cms": "CMS",
+                            "language": "Param\u00e8tres de langue"
+                        }
+                    }
+                },
+                "pages": {
+                    "dashboard": {
+                        "admin": {
+                            "title": "Panneau de l'administrateur",
+                            "subtitle": "Tableau de bord",
+                            "blocks": {
+                                "subscription": {
+                                    "title": "Montant Abonnements",
+                                    "description": "Montant des services offerts"
+                                },
+                                "total_customers": {
+                                    "title": "Clients Total",
+                                    "description": "Clients dans le syst\u00e8me"
+                                },
+                                "expenses": {
+                                    "title": "D\u00e9penses",
+                                    "description": "Toutes les d\u00e9penses enregistr\u00e9es"
+                                },
+                                "total_cash": {
+                                    "title": "Caisse Totale",
+                                    "description": "Montant disponible en caisse"
+                                }
+                            },
+                            "sales_report": "Rapport Ventes"
+                        },
+                        "user": {
+                            "title": "Panneau de l'utilisateur",
+                            "subtitle": "Tableau de bord",
+                            "blocks": {
+                                "subscription": {
+                                    "title": "Montant Abonnements",
+                                    "description": "Montant des services offerts"
+                                },
+                                "total_customers": {
+                                    "title": "Clients Total",
+                                    "description": "Clients dans le syst\u00e8me"
+                                },
+                                "expenses": {
+                                    "title": "D\u00e9penses",
+                                    "description": "Toutes les d\u00e9penses enregistr\u00e9es"
+                                },
+                                "total_cash": {
+                                    "title": "Caisse Totale",
+                                    "description": "Montant disponible en caisse"
+                                }
+                            },
+                            "sales_report": "Rapport Ventes"
+                        }
+                    },
+                    "admins": {
+                        "title": "Administrateurs",
+                        "add": "Ajouter un administrateur",
+                        "edit": "Modifier un administrateur",
+                        "index": "Liste des administrateurs",
+                        "form": {
+                            "name": "Nom de l'administrateur",
+                            "full_name": "Nom complet",
+                            "phone": "Num\u00e9ro de t\u00e9l\u00e9phone",
+                            "password": "Mot de passe",
+                            "password_confirmation": "Confirmation de mot de passe",
+                            "email": "Adresse mail",
+                            "admin_photo": "Photo de l'administrateur",
+                            "photo": "Photo"
+                        }
+                    },
+                    "users": {
+                        "title": "Utilisateurs",
+                        "add": "Ajouter un utilisateur",
+                        "edit": "Modifier un utilisateur",
+                        "index": "Liste des utilisateurs",
+                        "form": {
+                            "name": "Nom d'utilisateur",
+                            "full_name": "Nom complet",
+                            "phone": "Num\u00e9ro de t\u00e9l\u00e9phone",
+                            "password": "Mot de passe",
+                            "password_confirmation": "Confirmation de mot de passe",
+                            "email": "Adresse mail",
+                            "role": "R\u00f4le",
+                            "select_role": "S\u00e9lectionner un r\u00f4le",
+                            "user_photo": "Photo de l'utilisateur",
+                            "photo": "Photo"
+                        }
+                    },
+                    "roles": {
+                        "title": "R\u00f4les",
+                        "add": "Ajouter un r\u00f4le",
+                        "edit": "Modifier un r\u00f4le",
+                        "index": "Liste des r\u00f4les",
+                        "form": {
+                            "name": "Nom",
+                            "description": "Description",
+                            "features": "Fonctionnalit\u00e9s",
+                            "created_at": "Cr\u00e9\u00e9 le",
+                            "create": "Cr\u00e9er",
+                            "update": "Modifier",
+                            "delete": "Supprimer"
+                        }
+                    },
+                    "features": {
+                        "title": "Fonctionnalit\u00e9s",
+                        "add": "Ajouter une fonctionnalit\u00e9",
+                        "edit": "Modifier une fonctionnalit\u00e9",
+                        "index": "Liste des fonctionnalit\u00e9s",
+                        "form": {
+                            "name": "Nom",
+                            "prefix": "Pr\u00e9fixe",
+                            "created_at": "Cr\u00e9\u00e9e le"
+                        }
+                    },
+                    "customers": {
+                        "title": "Clients",
+                        "add": "Ajouter un client",
+                        "edit": "Modifier un client",
+                        "index": "Liste des clients",
+                        "form": {
+                            "name": "Nom du client",
+                            "phone": "Num\u00e9ro de t\u00e9l\u00e9phone",
+                            "city": "Ville",
+                            "select_city": "S\u00e9lectionner une ville",
+                            "quarter": "Quartier",
+                            "select_quarter": "S\u00e9lectionner un quartier",
+                            "nid_canal": "Num\u00e9ro d'identification Canal+",
+                            "nid_eneo": "Num\u00e9ro d'identification ENEO",
+                            "nid_camwater": "Num\u00e9ro d'identification Camwater",
+                            "customer_photo": "Photo du client",
+                            "photo": "Photo"
+                        }
+                    },
+                    "cities": {
+                        "title": "Villes",
+                        "add": "Ajouter une ville",
+                        "edit": "Modifier une ville",
+                        "index": "Liste des villes",
+                        "form": {
+                            "name": "Nom",
+                            "created_at": "Cr\u00e9\u00e9e le"
+                        }
+                    },
+                    "quarters": {
+                        "title": "Quartiers",
+                        "add": "Ajouter un quartier",
+                        "edit": "Modifier un quartier",
+                        "index": "Liste des quartiers",
+                        "form": {
+                            "name": "Nom",
+                            "city": "Ville",
+                            "select_city": "S\u00e9lectionner une ville",
+                            "created_at": "Cr\u00e9\u00e9 le"
+                        }
+                    },
+                    "languages": {
+                        "title": "Langues",
+                        "add": "Ajouter une langue",
+                        "edit": "Modifier une langue",
+                        "index": "Liste des langues",
+                        "form": {
+                            "name": "Nom",
+                            "abbr": "Abr\u00e9viation",
+                            "flag": "Drapeau",
+                            "select_flag": "S\u00e9lectionner un drapeau",
+                            "created_at": "Cr\u00e9\u00e9e le"
+                        }
+                    },
+                    "methods": {
+                        "title": "M\u00e9thodes de paiement",
+                        "add": "Ajouter une m\u00e9thode",
+                        "edit": "Modifier une m\u00e9thode",
+                        "index": "Liste des m\u00e9thodes",
+                        "form": {
+                            "name": "Nom",
+                            "created_at": "Cr\u00e9\u00e9e le"
+                        }
+                    },
+                    "expenses": {
+                        "title": "D\u00e9penses",
+                        "add": "Ajouter une d\u00e9pense",
+                        "edit": "Modifier une d\u00e9pense",
+                        "index": "Liste des d\u00e9penses",
+                        "form": {
+                            "expendable_type": "Cat\u00e9gorie",
+                            "select_expendable_type": "S\u00e9lectionner un type de d\u00e9pense",
+                            "method": "M\u00e9thode",
+                            "select_method": "S\u00e9lectionner une m\u00e9thode",
+                            "date": "Date",
+                            "amount": "Montant",
+                            "description": "Description",
+                            "user": "Responsable",
+                            "proof": "Preuve"
+                        }
+                    },
+                    "cms": {
+                        "title": "CMS",
+                        "global": "Global",
+                        "general": "G\u00e9n\u00e9ral",
+                        "messages": "Messages",
+                        "frontend": "Frontend",
+                        "components": "Composants",
+                        "backend": "Backend",
+                        "auth": "Auth",
+                        "form": {
+                            "logo": "Logo",
+                            "app_name": "Nom de l'application",
+                            "company_name": "Nom de l'entreprise"
+                        }
+                    },
+                    "settings": {
+                        "title": "R\u00e9glages",
+                        "language": {
+                            "title": "Param\u00e8tres de langue",
+                            "form": {
+                                "select_language": "S\u00e9lectionner une langue"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

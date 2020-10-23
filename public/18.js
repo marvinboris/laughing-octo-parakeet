@@ -236,7 +236,7 @@ var SubNavLinks = function SubNavLinks(_ref) {
   };
 
   var navItems = Object.keys(auth).map(function (key) {
-    var id = language.abbr + '-' + key;
+    var id = "".concat(language.abbr, "-").concat(key);
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__["NavItem"], {
       key: id
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__["NavLink"], {
